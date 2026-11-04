@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APSEZ Strategic Analysis</title>
+<style>
+  :root{
+    --ink:#1d2228; --muted:#5b6470; --rule:#c9ced6; --soft:#f2f4f7; --accent:#1f4e79;
+    --low:#dcefe3; --low-ink:#1e5e3a; --mod:#fbeccc; --mod-ink:#7a5300; --high:#f6d5d2; --high-ink:#8a2219;
+  }
+  @page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+  html,body{ background:#fff; color:var(--ink); }
+  body{ font-family:"Bitstream Charter","Caladea","DejaVu Serif",serif; font-size:10.6pt; line-height:1.48; margin:0; }
+  h1,h2,h3,h4,.sans,table,figcaption,.box-label{ font-family:"Inter","Liberation Sans",sans-serif; }
+  h1{ font-size:21pt; line-height:1.2; margin:0 0 6mm; color:var(--accent); font-weight:700; }
+  h2{ font-size:13.5pt; color:var(--accent); margin:7mm 0 2.5mm; padding-bottom:1.2mm; border-bottom:1px solid var(--rule); break-after:avoid; }
+  h3{ font-size:11pt; margin:4.5mm 0 1.5mm; break-after:avoid; }
+  p{ margin:0 0 2.6mm; text-align:justify; hyphens:auto; }
+  .cover{ height:250mm; display:flex; flex-direction:column; justify-content:center; break-after:page; }
+  .cover .sub{ font-family:"Inter",sans-serif; font-size:12pt; color:var(--muted); margin-bottom:12mm; }
+  .cover dl{ font-family:"Inter",sans-serif; font-size:10pt; display:grid; grid-template-columns:44mm 1fr; row-gap:2mm; }
+  .cover dt{ color:var(--muted); } .cover dd{ margin:0; }
+  .toc{ break-after:page; } .toc ol{ font-family:"Inter",sans-serif; font-size:10.5pt; line-height:1.9; }
+  table{ border-collapse:collapse; width:100%; font-size:8.3pt; line-height:1.32; margin:1.5mm 0 1mm; break-inside:auto; }
+  th,td{ border:1px solid var(--rule); padding:1.3mm 1.6mm; vertical-align:top; text-align:left; }
+  th{ background:var(--soft); font-weight:600; }
+  tr{ break-inside:avoid; }
+  td.num, th.num{ text-align:right; white-space:nowrap; }
+  figure{ margin:3mm 0 4mm; break-inside:avoid; }
+  figcaption{ font-size:8.6pt; color:var(--ink); font-weight:600; margin-bottom:1.2mm; }
+  .src{ font-family:"Inter",sans-serif; font-size:7.4pt; color:var(--muted); margin-top:1mm; line-height:1.35; }
+  .r-low{ background:var(--low); color:var(--low-ink); font-weight:600; }
+  .r-mod{ background:var(--mod); color:var(--mod-ink); font-weight:600; }
+  .r-high{ background:var(--high); color:var(--high-ink); font-weight:600; }
+  .yes{ color:var(--low-ink); font-weight:700; } .part{ color:var(--mod-ink); font-weight:700; } .no{ color:var(--high-ink); font-weight:700; }
+  .ansoff{ display:grid; grid-template-columns:20mm 1fr 1fr; grid-template-rows:auto 1fr 1fr; gap:1.5mm; font-family:"Inter",sans-serif; font-size:8pt; }
+  .ansoff .hd{ background:var(--soft); font-weight:600; padding:1.5mm; text-align:center; }
+  .ansoff .side{ background:var(--soft); font-weight:600; padding:1.5mm; writing-mode:vertical-rl; transform:rotate(180deg); text-align:center; }
+  .ansoff .cell{ border:1px solid var(--rule); padding:2mm; }
+  .ansoff .cell h4{ margin:0 0 1mm; font-size:9pt; color:var(--accent); }
+  .ansoff ul{ margin:0; padding-left:3.5mm; } .ansoff li{ margin-bottom:0.6mm; }
+  .prop{ font-style:italic; color:#6a3d00; }
+  .rec{ break-inside:avoid; margin:2mm 0 4mm; }
+  .rec table td:first-child{ width:30mm; font-weight:600; background:var(--soft); }
+  ul.plain{ margin:0 0 2.6mm; padding-left:5mm; } ul.plain li{ margin-bottom:1mm; }
+  .refs p{ text-align:left; padding-left:8mm; text-indent:-8mm; font-size:9.4pt; margin-bottom:1.8mm; }
+  .note{ font-family:"Inter",sans-serif; font-size:8pt; color:var(--muted); }
+  .pb{ break-before:page; }
+  svg text{ font-family:"Inter","Liberation Sans",sans-serif; }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <h1>Adani Ports and Special Economic Zone Ltd (APSEZ):<br>A Strategic Analysis</h1>
+  <div class="sub">Competitive position, resources and growth strategy assessed with Porter's Five Forces, VRIN, VRIO and the Ansoff matrix</div>
+  <dl>
+    <dt>Assignment</dt><dd>SCM Assignment: Strategic analysis of APSEZ</dd>
+    <dt>Student</dt><dd>[Name / ID]</dd>
+    <dt>Date</dt><dd>November 2026</dd>
+    <dt>Evidence cut-off</dt><dd>28 October 2026 (Q2 FY27 results)</dd>
+    <dt>Referencing</dt><dd>Harvard (Cite Them Right)</dd>
+    <dt>Word count</dt><dd id="wc">Main body prose: see Appendix A</dd>
+  </dl>
+</section>
+
+<section class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li>Executive summary</li>
+    <li>Introduction and method</li>
+    <li>Company overview and financial profile</li>
+    <li>The Indian ports industry</li>
+    <li>Porter's Five Forces</li>
+    <li>VRIN analysis</li>
+    <li>VRIO analysis and comparison with VRIN</li>
+    <li>Ansoff matrix: growth vectors and their evaluation</li>
+    <li>Integrated strategic assessment</li>
+    <li>Strategic recommendations</li>
+    <li>Conclusion</li>
+    <li>References</li>
+    <li>Appendix A: Verification and compliance checklist</li>
+    <li>Appendix B: Data notes and limitations</li>
+  </ol>
+  <p class="note">Units: ₹ cr = ₹ crore (₹10 million). MMT = million metric tonnes. MTPA = million tonnes per annum. TEU = twenty-foot equivalent unit. FY = Indian financial year ending 31 March (FY26 = April 2025–March 2026). Q2 FY27 = July–September 2026. ROCE = return on capital employed, as defined by APSEZ unless stated otherwise.</p>
+</section>
+
+<main id="body">
+
+<h2>1. Executive summary</h2>
+<div class="prose">
+<p>APSEZ is India's largest commercial port operator. It handled 500.8 MMT of cargo in FY26 and reports a 27.1% share of national port volume (APSEZ, 2026a). This report tests that position against four frameworks. The evidence base is the FY26 audited accounts and disclosures up to 28 October 2026.</p>
+<p>The analysis reaches four conclusions. First, Indian port services are a moderately attractive industry for incumbents with good sites. In containers, however, rivalry and buyer power are high and rising, and a state-led port at Vadhavan is planned to add large west-coast capacity from around 2030, possibly later. Second, APSEZ has one clear sustained advantage: the Mundra complex. That complex combines a port concession, contiguous SEZ land, deep water and terminal joint ventures with two of the world's largest container lines, and it carries 45% of APSEZ's domestic volume (APSEZ, 2026d). Most other resources, including scale, the logistics network and access to capital, deliver parity or a temporary advantage. Third, the Mundra advantage is legally contingent. The concession, and the container sub-concessions tied to it, expire on 16 February 2031, and several supplementary agreements remain unsigned (APSEZ, 2026b). Fourth, new capital is flowing into segments where APSEZ has parity and earns 8–13% ROCE, against 23% in domestic ports. Diversification therefore spreads risk but dilutes returns.</p>
+<p>Four recommendations follow:</p>
+<ul class="plain">
+<li>secure Mundra's tenure before 2029, and make long-payback investment at Mundra conditional on that tenure;</li>
+<li>introduce a return gate for logistics, marine and international investment;</li>
+<li>defend container share on the west coast before Vadhavan opens;</li>
+<li>turn around or recycle the under-performing non-Mundra ports.</li>
+</ul>
+</div>
+
+<h2>2. Introduction and method</h2>
+<div class="prose">
+<p>The report evaluates APSEZ's competitive position, resources and growth strategy. The analysis runs from the outside in. Porter's Five Forces is applied first, at industry level, so that APSEZ's own strengths do not shape the industry judgement. VRIN (Barney, 1991) and VRIO (Barney, 1995; Barney and Hesterly, 2021) then assess the firm's resources. The Ansoff (1957) matrix classifies growth initiatives, which are evaluated for suitability, acceptability and feasibility (Whittington <em>et al.</em>, 2023). The final step reconciles the four sets of findings and derives recommendations.</p>
+<p>Evidence comes from exchange filings, audited financial statements and government data wherever possible. Company claims are identified as such. Press articles that reproduce company releases are not treated as independent corroboration. All derived ratios are the author's calculations, and their scope is stated, because consolidated, segment and joint-venture figures are not interchangeable. Appendix B lists the data limitations.</p>
+</div>
+
+<h2>3. Company overview and financial profile</h2>
+<div class="prose">
+<p>APSEZ was incorporated in 1998. Its foundation is a 30-year concession for Mundra port in Gujarat, granted by the Government of Gujarat and the Gujarat Maritime Board (GMB) and effective from 17 February 2001 (APSEZ, 2026b). Growth came first from building out Mundra and its special economic zone, and later from acquisitions and new concessions on every Indian coastline. APSEZ now operates 15 domestic ports and terminals, plus four international ports: Haifa (Israel), Colombo West International Terminal (Sri Lanka), Dar es Salaam (Tanzania) and the North Queensland Export Terminal (NQXT, Australia). Domestic capacity reached 671 MTPA in September 2026 after APSEZ won a 30-year concession for two dry-bulk berths at Paradip (APSEZ, 2026d).</p>
+<p>The business has four reporting segments: domestic ports, international ports, logistics, and marine services. A small SEZ segment sits alongside them. Exhibits 1 and 2 summarise the financial profile, which shows four features.</p>
+<ul class="plain">
+<li><strong>Growth has been fast, but margins have been flat.</strong> Revenue grew at 22.6% a year between FY22 and FY26, while the EBITDA margin stayed between 59% and 62%. Over that period the business mix moved towards lower-margin activities.</li>
+<li><strong>Earnings are concentrated.</strong> Domestic ports produced two-thirds of FY26 revenue and EBITDA equal to about 82% of the consolidated total, at a 73% margin and 23% ROCE. Within that segment, Mundra alone handled 45% of domestic volume in H1 FY27. Volume at the other domestic ports was flat year on year (APSEZ, 2026d).</li>
+<li><strong>The business is capital-intensive.</strong> Gross fixed assets are about 4.1 times revenue. FY26 capex of ₹15,320 cr was about 40% of revenue and exceeded guidance by 28–39% (APSEZ, 2026a). Leverage is moderate: net debt was 1.9 times EBITDA at the end of FY26.</li>
+<li><strong>Recent growth is partly bought.</strong> International volume rose from 17 to 47 MMT in H1 FY27, mostly because of NQXT. APSEZ bought NQXT in December 2025 from a promoter-group company and paid in new shares (APSEZ, 2025). Domestic volume grew only 2.6% in the same period.</li>
+</ul>
+<p>Two further facts matter for later sections. In FY26, 16.1% of revenue came from Adani group companies, up from 11.9% in FY25. JVs added another 3.3% (APSEZ, 2026b, note 32; consistent with the 19.8% related-party share reported in APSEZ, 2026c). Separately, no single external customer accounts for 10% or more of revenue.</p>
+</div>
+
+<figure>
+<figcaption>Exhibit 1. APSEZ consolidated profile, FY22–FY26 and H1 FY27</figcaption>
+<table>
+<tr><th>₹ cr unless stated</th><th class="num">FY22</th><th class="num">FY24</th><th class="num">FY25</th><th class="num">FY26</th><th class="num">H1 FY27</th></tr>
+<tr><td>Revenue from operations</td><td class="num">17,119</td><td class="num">26,711</td><td class="num">31,079</td><td class="num">38,736</td><td class="num">22,161</td></tr>
+<tr><td>EBITDA (margin)</td><td class="num">10,397 (61%)</td><td class="num">15,864 (59%)</td><td class="num">19,025 (61%)</td><td class="num">22,851 (59%)</td><td class="num">13,347 (60%)</td></tr>
+<tr><td>Profit after tax</td><td class="num">4,953</td><td class="num">8,104</td><td class="num">11,061</td><td class="num">12,782</td><td class="num">7,332</td></tr>
+<tr><td>Gross fixed assets (excl. CWIP)</td><td class="num">74,076</td><td class="num">93,006</td><td class="num">1,11,163</td><td class="num">1,58,850</td><td class="num">n/d</td></tr>
+<tr><td>Capex (vs guidance)</td><td class="num">n/d</td><td class="num">n/d</td><td class="num">n/d</td><td class="num">15,320 (11–12k)</td><td class="num">10,521 (FY27 G: 15–17k)</td></tr>
+<tr><td>Net debt / EBITDA (x)</td><td class="num">n/d</td><td class="num">n/d</td><td class="num">n/d</td><td class="num">1.9</td><td class="num">1.8</td></tr>
+<tr><td>Cargo, MMT (domestic)</td><td class="num">—</td><td class="num">—</td><td class="num">450.2</td><td class="num">500.8 (≈451)</td><td class="num">280 (233)</td></tr>
+<tr><td>All-India cargo / container share</td><td class="num">—</td><td class="num">—</td><td class="num">27.0% / 45.5%</td><td class="num">27.1% / 45.5%</td><td class="num">27.4% / 44.6%</td></tr>
+<tr><td>Consolidated ROCE (company-defined)</td><td class="num">—</td><td class="num">13%</td><td class="num">15%</td><td class="num">16%*</td><td class="num">—</td></tr>
+</table>
+<div class="src">Sources: APSEZ (2026a; 2026d). FY figures are the management presentation basis. The audited FY25 revenue is ₹30,475 cr (APSEZ, 2026b), against the restated ₹31,079 cr shown here. *Excludes NQXT. n/d = not disclosed in the documents reviewed. H1 FY27 market shares are compared with H1 FY26 (28.0% / 45.5%).</div>
+</figure>
+
+<figure>
+<figcaption>Exhibit 2. Segment economics, FY26 (and Q2 FY27 margin)</figcaption>
+<table>
+<tr><th>Segment</th><th class="num">Revenue ₹ cr (YoY)</th><th class="num">EBITDA ₹ cr</th><th class="num">EBITDA margin FY26 (Q2 FY27)</th><th class="num">ROCE FY26 (FY25)</th><th>What drives it</th></tr>
+<tr><td>Domestic ports</td><td class="num">25,755 (+13%)</td><td class="num">18,849</td><td class="num">73% (72%)</td><td class="num">23% (21%)</td><td>Mundra; captive harbour services (90% margin)</td></tr>
+<tr><td>International ports</td><td class="num">4,539 (+34%)</td><td class="num">≈1,298</td><td class="num">29% (48%)</td><td class="num">8%* (6%)</td><td>NQXT (from Q4 FY26), Colombo ramp-up</td></tr>
+<tr><td>Logistics</td><td class="num">4,478 (+55%)</td><td class="num">863</td><td class="num">19% (19%)</td><td class="num">10% (6%)</td><td>Trucking 8.4% and freight-forwarding 10.4% margins (Q2 FY27)</td></tr>
+<tr><td>Marine</td><td class="num">2,681 (+134%)</td><td class="num">1,357</td><td class="num">51% (44%)</td><td class="num">13% (13%)</td><td>Acquired offshore-vessel fleets (Middle East, Africa, South Asia)</td></tr>
+</table>
+<div class="src">Sources: APSEZ (2026a; 2026d). International EBITDA is derived from the reported 28.6% margin. *Excludes NQXT. Segment figures are before consolidation adjustments and SEZ income.</div>
+</figure>
+
+<h2>4. The Indian ports industry</h2>
+<div class="prose">
+<p>Indian ports operate under two regimes:</p>
+<ul class="plain">
+<li><strong>Major ports.</strong> Twelve operating major ports follow a landlord model under the Major Port Authorities Act 2021. Private operators such as DP World, PSA and APM Terminals run terminals there under public–private partnerships. Major ports handled 915.17 MT in FY26, up 7.1% (Paradip Port Authority, 2026).</li>
+<li><strong>Non-major ports.</strong> These are governed by state maritime boards. Under the Indian Ports Act 2025, those boards or their concessionaires set tariffs (Government of India, 2025). Using APSEZ's estimate of 1,668 MMT for total Indian traffic, non-major ports handled about 45% of the national total. Gujarat accounts for much of that, and APSEZ is its largest operator. In September 2026 Mundra became the only non-major port among the first four ports designated "Mega Ports" (Maritime Gateway, 2026).</li>
+</ul>
+<p>The regulatory split has economic consequences. Private non-major ports in Gujarat have long set their own commercial rates, subject to a royalty paid to the state. Major-port terminals are run under concession agreements whose tariffs are set by the port authority's board. The 2025 Act moves both systems towards market-based pricing, with an advisory body overseeing tariff transparency (Government of India, 2025). For APSEZ this cuts both ways. It keeps APSEZ's pricing freedom, and it also lets public ports and their terminal operators compete more flexibly on price.</p>
+<p>Demand is moving in different directions by cargo type. Container volumes are growing. Coal, about 30% of APSEZ's domestic cargo in Q2 FY27, fell 6% year on year (APSEZ, 2026d). Liquids are tied to refineries. Hinterland reach is widening as the Western Dedicated Freight Corridor carries double-stack container trains. This is consistent with Notteboom and Rodrigue's (2005) account of port regionalisation, in which inland networks increasingly decide which port wins. Empirical work on India links competition between major and non-major ports to lower efficiency and possible over-supply of infrastructure (Adler <em>et al.</em>, 2022). That is a familiar risk in a sector where capacity arrives in large, lumpy increments (Haralambides, 2002).</p>
+</div>
+
+<h2>5. Porter's Five Forces</h2>
+<div class="prose">
+<p>The industry is defined as commercial cargo-handling services at Indian gateway ports. The forces differ sharply by cargo type, so each is rated separately for containers, dry bulk and liquids (Exhibit 3). Porter (2008) treats government as an influence on the forces rather than a force in its own right. One adaptation is made here: the concession grantor is treated as a supplier, because it supplies the indispensable input, the right to operate a waterfront, and it sets royalties and renewal terms.</p>
+
+<h3>Competitive rivalry: high in containers, moderate in bulk</h3>
+<p>Container competition on the west coast is intensifying. APSEZ's all-India container share fell from 45.9% to 44.4% between Q2 FY26 and Q2 FY27 (APSEZ, 2026d). Over the same period JNPA, the main public alternative near Mumbai, passed 8 million TEU in FY26 for the first time (Free Press Journal, 2026). APSEZ's domestic capacity utilisation is about 69% (451 MMT handled against 653 MTPA), and JSW Infrastructure plans to reach 400 MTPA by FY30 (Whalesbook, 2026). Spare capacity of this kind encourages price competition (Haralambides, 2002). In bulk, rivalry is regional rather than national. Even so, APSEZ's east-coast ports saw EBITDA margin fall from 50% to 41% year on year in Q2 FY27, which points to price or mix pressure near Paradip and Visakhapatnam.</p>
+
+<h3>Threat of new entry: moderate</h3>
+<p>Building a new port requires a deep-water site, coastal and environmental clearances, land, and very large capital. APSEZ's gross fixed assets alone are ₹1.59 lakh crore. These barriers are real. However, the most credible entrant is the state itself. Vadhavan, a ₹76,220 cr port planned by JNPA and Maharashtra, targets about 23.2 million TEU at full build, with its first phase due around 2030, although some estimates are later (ThePrint, 2024). Landlord concessions at major ports also let well-funded operators enter without owning a port, so the barriers protect existing sites more than they protect the market.</p>
+
+<h3>Supplier power: moderate, rising to high for Mundra</h3>
+<p>Two suppliers matter most. The first is the concession grantor. GMB prescribes waterfront royalty rates (APSEZ, 2026b) and will decide the terms on which Mundra continues after February 2031. APSEZ is reported to have applied for an extension (India Shipping News, 2021; CargoConnect, n.d.), but no final decision has been published. The second is Indian Railways, the monopoly provider of rail haulage, whose tariffs and rake supply shape port catchments. APSEZ's rail container volume fell 6.4% year on year in Q2 FY27. Equipment makers and dredging contractors matter less, partly because APSEZ owns 64 dredgers.</p>
+
+<h3>Buyer power: high in containers, low to moderate in bulk and liquids</h3>
+<p>Global container lines are concentrated and choose where to call. At Mundra, the two largest container terminals are 50:50 joint ventures with MSC and CMA CGM (APSEZ, 2026b). This makes the largest buyers partners as well. Such co-opetition (Brandenburger and Nalebuff, 1996) secures volume today, but it gives those partners leverage as their sub-concessions approach their 2031 end-date. In bulk and liquids, buyer power is weaker. Plants located near ports, conveyor connections and refinery jetties create high switching costs, and 16% of revenue comes from group companies. No external customer exceeds 10% of revenue.</p>
+<p>A cargo owner's ability to switch also depends on distance. Containers bound for northern India can be routed through Mundra, Pipavav or JNPA, and the freight corridor narrows the cost gap between them. A refinery or power plant tied to a dedicated jetty cannot switch at all. In Porter's terms, buyer power is therefore highest exactly where APSEZ's growth in market share has stalled.</p>
+
+<h3>Threat of substitutes: low overall, moderate for coal</h3>
+<p>Sea transport has no practical substitute for India's export and import trade. The real substitution risk lies in the cargo itself. As India's demand for imported thermal coal declines, coal-handling capacity loses value. Coal is still the largest single cargo at several APSEZ ports.</p>
+
+<p><strong>Industry verdict.</strong> The industry is moderately attractive for incumbents with good sites. Bulk and liquids are protected by captive demand, and the container gateway segment is becoming less attractive towards 2030. APSEZ's 72–73% domestic margin is higher than this structure would predict. Three facts explain much of the gap. Part of the cargo is captive. Harbour services such as towage and pilotage, which only the port owner can supply inside its own port, earn about 90% margins. And the most contested activity, container handling at Mundra, sits mostly in joint ventures that are not consolidated. AICTPL, the MSC joint venture, earned about 57% in Q2 FY27 (APSEZ, 2026d). Firm advantage, examined next, therefore has to explain less of the margin than the headline suggests.</p>
+</div>
+
+<figure>
+<figcaption>Exhibit 3. Five Forces for Indian gateway port services, with ratings by segment (FY26–H1 FY27; "box" = container)</figcaption>
+<svg viewBox="0 0 760 360" width="100%" role="img" aria-label="Five forces diagram">
+  <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5b6470"/></marker></defs>
+  <g font-size="11">
+    <rect x="255" y="8" width="250" height="78" rx="6" fill="#fbeccc" stroke="#c9ced6"/>
+    <text x="380" y="27" text-anchor="middle" font-weight="700" fill="#7a5300">THREAT OF NEW ENTRY: MODERATE</text>
+    <text x="380" y="45" text-anchor="middle" fill="#1d2228">High greenfield barriers (capital, draft, clearances)</text>
+    <text x="380" y="61" text-anchor="middle" fill="#1d2228">but the state is an entrant: Vadhavan, ₹76,220 cr, c.2030</text>
+    <text x="380" y="77" text-anchor="middle" fill="#1d2228">Landlord PPPs allow entry without owning a port</text>
+
+    <rect x="8" y="132" width="225" height="100" rx="6" fill="#fbeccc" stroke="#c9ced6"/>
+    <text x="120" y="151" text-anchor="middle" font-weight="700" fill="#7a5300">SUPPLIERS: MODERATE</text>
+    <text x="120" y="167" text-anchor="middle" font-weight="700" fill="#8a2219">→ HIGH for Mundra near 2031</text>
+    <text x="120" y="184" text-anchor="middle" fill="#1d2228">Grantor (GMB): royalty, renewal</text>
+    <text x="120" y="200" text-anchor="middle" fill="#1d2228">Indian Railways: haulage monopoly</text>
+    <text x="120" y="216" text-anchor="middle" fill="#1d2228">64 own dredgers limit contractors</text>
+
+    <rect x="255" y="122" width="250" height="120" rx="6" fill="#f6d5d2" stroke="#c9ced6"/>
+    <text x="380" y="141" text-anchor="middle" font-weight="700" fill="#8a2219">RIVALRY: MODERATE–HIGH, RISING</text>
+    <text x="380" y="158" text-anchor="middle" fill="#1d2228">Box HIGH · Bulk MOD · Liquid LOW–MOD</text>
+    <text x="380" y="176" text-anchor="middle" fill="#1d2228">APSEZ box share 45.9% → 44.4% (Q2)</text>
+    <text x="380" y="192" text-anchor="middle" fill="#1d2228">JNPA &gt;8m TEU (FY26); JSW → 400 MTPA</text>
+    <text x="380" y="208" text-anchor="middle" fill="#1d2228">APSEZ domestic utilisation ≈69%</text>
+    <text x="380" y="224" text-anchor="middle" fill="#1d2228">East-coast margin 50% → 41%</text>
+
+    <rect x="527" y="132" width="225" height="100" rx="6" fill="#f6d5d2" stroke="#c9ced6"/>
+    <text x="640" y="151" text-anchor="middle" font-weight="700" fill="#8a2219">BUYERS: MODERATE–HIGH</text>
+    <text x="640" y="167" text-anchor="middle" fill="#1d2228">Box HIGH · Bulk/Liquid LOW–MOD</text>
+    <text x="640" y="184" text-anchor="middle" fill="#1d2228">MSC, CMA CGM: buyers and JV partners</text>
+    <text x="640" y="200" text-anchor="middle" fill="#1d2228">No external customer ≥10% of revenue</text>
+    <text x="640" y="216" text-anchor="middle" fill="#1d2228">16% of revenue from group companies</text>
+
+    <rect x="255" y="280" width="250" height="72" rx="6" fill="#dcefe3" stroke="#c9ced6"/>
+    <text x="380" y="299" text-anchor="middle" font-weight="700" fill="#1e5e3a">SUBSTITUTES: LOW (MODERATE for coal)</text>
+    <text x="380" y="317" text-anchor="middle" fill="#1d2228">No practical alternative to sea EXIM trade</text>
+    <text x="380" y="333" text-anchor="middle" fill="#1d2228">Falling thermal-coal imports (APSEZ coal −6% YoY)</text>
+
+    <line x1="380" y1="86" x2="380" y2="120" stroke="#5b6470" stroke-width="1.5" marker-end="url(#ar)"/>
+    <line x1="233" y1="182" x2="253" y2="182" stroke="#5b6470" stroke-width="1.5" marker-end="url(#ar)"/>
+    <line x1="527" y1="182" x2="507" y2="182" stroke="#5b6470" stroke-width="1.5" marker-end="url(#ar)"/>
+    <line x1="380" y1="280" x2="380" y2="244" stroke="#5b6470" stroke-width="1.5" marker-end="url(#ar)"/>
+  </g>
+</svg>
+<div class="src">Sources: APSEZ (2026a; 2026b; 2026d); Free Press Journal (2026); ThePrint (2024); Whalesbook (2026). Ratings are the author's assessment.</div>
+</figure>
+
+<h2>6. VRIN analysis</h2>
+<div class="prose">
+<p>Barney (1991) argues that a resource supports a sustained advantage when it is valuable, rare, imperfectly imitable and non-substitutable. Non-substitutability is a distinct test. It asks whether a rival could carry out the same strategy using a <em>different</em> bundle of resources, which is not the same as Porter's question of whether customers can switch to a different product. Ten resources are assessed in Exhibit 4.</p>
+<p>Each resource is tested on evidence that APSEZ actually holds it, and the assessment does not assume that something important must be an advantage. Two resources commonly cited for APSEZ, scale and its integrated network, are deliberately split into their parts, because the parts behave differently.</p>
+<p><strong>The Mundra complex (R1)</strong> is the only resource that clearly meets the first three tests. It is valuable: Mundra earns a 72% EBITDA margin and carries 45% of domestic volume. It is rare: by APSEZ's account it is the country's largest commercial port, it is the only private Mega Port, and it sits next to a notified SEZ. It is hard to imitate because it was built over 25 years. Dierickx and Cool (1989) describe this kind of time-compression diseconomy: land, permits, deep-water berths and an industrial cluster around them cannot be bought quickly. Non-substitutability is only partial. For containers, a rival bundle of JNPA terminals, Vadhavan and freight-corridor rail could serve the same northern hinterland. For bulk and SEZ-linked cargo, no comparable bundle exists. Imitability also depends on law, not only on economics: much of R1 is a right that expires in 2031.</p>
+<p><strong>The non-Mundra portfolio (R2)</strong> fails the imitability test. Most of these ports were acquired. Barney (1986) shows that resources bought in competitive factor markets rarely earn above-normal returns unless the buyer has superior information or integration skill. Here the evidence of superior integration is weak. Volumes were flat in H1 FY27, east-coast margins fell, and the Visakhapatnam coal terminal ended in arbitration and is held for sale (APSEZ, 2026b).</p>
+<p><strong>Transshipment positions (R3)</strong>, at Vizhinjam (about 1.3 million TEU in its first full year; Shipping Tribune, 2026) and Colombo, are valuable and currently rare in India. They are only partly protected, because the state plans further hubs and Colombo's other terminals and Singapore are close substitutes. <strong>Joint ventures with container lines (R4)</strong> are valuable but less rare than they look, since APM Terminals and DP World hold similar positions at JNPA and Pipavav. <strong>Rail and logistics parks (R5)</strong> and <strong>trucking and freight forwarding (R6)</strong> fail on rarity: CONCOR and many private firms offer similar services, and the freight corridor is public infrastructure. <strong>The marine fleet (R7)</strong> creates value, but much of it comes from captive harbour services, a monopoly that derives from owning R1. <strong>Financial capacity (R9)</strong> fails non-substitutability, because sovereign capital funds rival capacity. <strong>Digital systems (R10)</strong> are bought from vendors and serve as a parity control.</p>
+</div>
+
+<figure>
+<figcaption>Exhibit 4. VRIN matrix (✓ meets · ◐ partly · ✗ does not)</figcaption>
+<table>
+<tr><th>Resource / capability</th><th>Evidence that APSEZ possesses it</th><th>V</th><th>R</th><th>I</th><th>N</th><th>Implication; main vulnerability</th></tr>
+<tr><td>R1 Mundra complex (concession, SEZ land, draft, JV terminals)</td><td>45% of domestic volume; 72% margin; Mega Port; SEZ contiguous to port</td><td class="yes">✓</td><td class="yes">✓</td><td class="part">◐*</td><td class="part">◐</td><td>Sustained-advantage candidate; *tenure ends 16 Feb 2031</td></tr>
+<tr><td>R2 Non-Mundra domestic ports</td><td>14 ports and terminals; margins 41–65%</td><td class="yes">✓</td><td class="part">◐</td><td class="no">✗</td><td class="no">✗</td><td>Parity; acquired in factor markets</td></tr>
+<tr><td>R3 Transshipment (Vizhinjam, Colombo)</td><td>Vizhinjam ≈1.3m TEU FY26; Colombo Phase II 3.2m TEU</td><td class="yes">✓</td><td class="yes">✓</td><td class="part">◐</td><td class="part">◐</td><td>Temporary; state hubs, Colombo and Singapore rivals</td></tr>
+<tr><td>R4 Shipping-line JV terminals</td><td>CT3 with MSC, CT4 with CMA CGM</td><td class="yes">✓</td><td class="part">◐</td><td class="part">◐</td><td class="part">◐</td><td>Temporary; co-terminus with 2031</td></tr>
+<tr><td>R5 Rail, logistics parks, ICDs</td><td>12 logistics parks; rail 695,517 TEU (FY26)</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td>Parity; CONCOR, public freight corridor</td></tr>
+<tr><td>R6 Trucking and freight forwarding</td><td>Margins 8.4% / 10.4% (Q2 FY27)</td><td class="part">◐</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td>Parity or below</td></tr>
+<tr><td>R7 Marine and dredging fleet</td><td>249 vessels incl. 64 dredgers; marine margin 51%</td><td class="yes">✓</td><td class="part">◐</td><td class="part">◐</td><td class="part">◐</td><td>Temporary; captive value depends on R1</td></tr>
+<tr><td>R8 Project execution and acquisition integration</td><td>Capacity 653 → 671 MTPA; but capex overruns, Vizag exit</td><td class="yes">✓</td><td class="part">◐</td><td class="part">◐</td><td>—</td><td>Unproven</td></tr>
+<tr><td>R9 Financial capacity</td><td>Net debt/EBITDA 1.8–1.9×; Baa3/BBB- ratings</td><td class="yes">✓</td><td class="no">✗</td><td>n/a</td><td class="no">✗</td><td>Parity relative to sovereign-backed rivals</td></tr>
+<tr><td>R10 Digital platforms</td><td>Vendor systems; "proprietary" trucking platform</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td>Parity (control case)</td></tr>
+</table>
+<div class="src">Sources: APSEZ (2026a; 2026b; 2026d); Shipping Tribune (2026). Assessments are the author's.</div>
+</figure>
+
+<h2>7. VRIO analysis and comparison with VRIN</h2>
+<div class="prose">
+<p>VRIO keeps value and rarity. It folds substitution into "costly to imitate" and adds a fourth question: is the firm organised to capture the value (Barney, 1995; Barney and Hesterly, 2021)? The evidence on organisation points both ways.</p>
+<p><em>For</em> organisation, APSEZ has the following in place:</p>
+<ul class="plain">
+<li>It reports return on capital for each segment, and from Q1 FY27 it reports results for each port cluster.</li>
+<li>It has kept to its leverage ceiling of 2.5 times EBITDA (actual 1.8–1.9 times). All three international rating agencies moved their outlooks to stable or positive in FY26 (APSEZ, 2026a).</li>
+<li>It has built the "shore-to-door" bundle of port, rail, logistics parks and trucking.</li>
+<li>Its formal governance follows the listing framework. The chairman and the managing director come from the promoter family. Day-to-day management sits with a whole-time director and CEO. The audit committee is chaired by an independent director, and a separate reputation-risk committee exists (APSEZ, 2026c). The reputation-risk committee is an unusual structure that responds directly to the group's history of external scrutiny.</li>
+</ul>
+<p><em>Against</em> organisation, the record shows three weaknesses:</p>
+<ul class="plain">
+<li><strong>Weak capital planning.</strong> FY26 capex overshot guidance, and FY27 capex guidance was raised by ₹3,000 cr in mid-year (APSEZ, 2026d).</li>
+<li><strong>Contract-governance gaps.</strong> The supplementary concession for Mundra's West Basin, operating since 2011, is still "in the process of getting signed". The sub-concessions for the MSC and CMA CGM terminals still await state approval (APSEZ, 2026b).</li>
+<li><strong>Related-party acquisitions.</strong> NQXT was bought from a promoter-group company and paid for with new shares. Minority shareholders approved the deal (APSEZ, 2025). Over the same period, revenue from group companies rose by 72%. In September 2025 the securities regulator, SEBI, found that the related-party allegations made by Hindenburg Research in 2023 were not established (SEBI, 2025). Even so, investors are likely to scrutinise this pattern.</li>
+</ul>
+<p>Exhibit 5 shows the resulting VRIO outcomes. The Mundra complex is a sustained competitive advantage, but conditional. Operationally APSEZ is well organised to exploit it. Contractually it is not, because unsigned agreements and a fixed expiry date expose the asset that funds the group. Transshipment, the joint ventures and the marine fleet give temporary advantages. Logistics, rail, finance and digital systems give parity. Integration capability remains unproven.</p>
+<p>The two frameworks agree on the strongest resource but for different reasons, and Exhibit 6 shows where they diverge. VRIN's non-substitutability test exposes an <em>external</em> threat: a state-built alternative bundle for containers. VRIO's organisation test exposes an <em>internal</em> one: contract governance and capital planning. The joint ventures (R4) drop a level under VRIO because their legal basis is unsigned. Integration capability (R8), which VRIN cannot resolve, looks weaker once actual post-acquisition results are examined. Financial capacity fails VRIN because sovereign capital substitutes for it, while VRIO rates it as parity. VRIN therefore says more about the strength of the resource bundle, and VRIO says more about whether management turns it into returns.</p>
+</div>
+
+<figure>
+<figcaption>Exhibit 5. VRIO matrix and competitive outcome</figcaption>
+<table>
+<tr><th>Resource</th><th>V</th><th>R</th><th>Costly to imitate</th><th>Organised (key evidence)</th><th>Outcome</th></tr>
+<tr><td>R1 Mundra complex</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓ until 2031</td><td class="part">◐ Strong in operations; unsigned supplementary and sub-concessions</td><td><strong>Sustained, conditional on renewal</strong></td></tr>
+<tr><td>R2 Non-Mundra ports</td><td class="yes">✓</td><td class="part">◐</td><td class="no">✗</td><td class="part">◐ Flat volume; east margin down</td><td>Parity</td></tr>
+<tr><td>R3 Transshipment</td><td class="yes">✓</td><td class="yes">✓</td><td class="part">◐</td><td class="yes">✓ Rapid ramp-up (Colombo 2m TEU in 18 months)</td><td>Temporary advantage</td></tr>
+<tr><td>R4 Shipping-line JVs</td><td class="yes">✓</td><td class="part">◐</td><td class="part">◐</td><td class="no">✗ Rights co-terminus with 2031, unsigned</td><td>Temporary advantage</td></tr>
+<tr><td>R5 Rail / logistics parks</td><td class="yes">✓</td><td class="no">✗</td><td>—</td><td class="yes">✓ Bundled offer</td><td>Parity</td></tr>
+<tr><td>R6 Trucking / forwarding</td><td class="part">◐</td><td class="no">✗</td><td>—</td><td class="part">◐ ROCE 10% (segment)</td><td>Parity</td></tr>
+<tr><td>R7 Marine fleet</td><td class="yes">✓</td><td class="part">◐</td><td class="part">◐</td><td class="yes">✓ Take-or-pay contracts</td><td>Temporary advantage</td></tr>
+<tr><td>R8 Execution / integration</td><td class="yes">✓</td><td class="part">◐</td><td class="part">◐</td><td class="part">◐ Overruns; Colombo slipped from Dec 2024 to Apr 2025</td><td>Unproven</td></tr>
+<tr><td>R9 Financial capacity</td><td class="yes">✓</td><td class="no">✗</td><td>—</td><td class="yes">✓ Leverage policy respected</td><td>Parity</td></tr>
+<tr><td>R10 Digital</td><td class="yes">✓</td><td class="no">✗</td><td>—</td><td>—</td><td>Parity</td></tr>
+</table>
+<div class="src">Sources: APSEZ (2025; 2026a; 2026b; 2026d); Lloyd's List (2025); Swarajya (2024). Outcome categories follow Barney and Hesterly (2021).</div>
+</figure>
+
+<figure>
+<figcaption>Exhibit 6. Where VRIN and VRIO diverge, and why</figcaption>
+<table>
+<tr><th>Resource</th><th>VRIN verdict</th><th>VRIO verdict</th><th>Reason for the difference</th></tr>
+<tr><td>R1 Mundra</td><td>Strong; N only partial</td><td>Sustained but conditional</td><td>N flags an external alternative bundle (JNPA + Vadhavan + rail corridor). O flags internal contract gaps.</td></tr>
+<tr><td>R4 JVs</td><td>Partly rare, partly protected</td><td>Temporary</td><td>O fails: legal basis unsigned and expiring</td></tr>
+<tr><td>R8 Integration</td><td>Indeterminate</td><td>Unproven</td><td>O tests actual post-deal outcomes</td></tr>
+<tr><td>R9 Finance</td><td>Fails N</td><td>Parity</td><td>N names the substitute (sovereign capital); VRIO treats imitation and substitution together</td></tr>
+</table>
+</figure>
+
+<h2>8. Ansoff matrix: growth vectors and their evaluation</h2>
+<div class="prose">
+<p>Exhibit 7 maps APSEZ's announced initiatives, dated to its disclosures up to 28 October 2026. It keeps them separate from this report's proposals, which are shown in italics and developed in Section 10. Two classification choices need explaining. Entering a new Indian hinterland, for example Gopalpur or Paradip, counts as market development rather than penetration, because the customers and catchment are new. Offshore and subsea vessel services count as related diversification. They use marine skills, but they serve offshore-energy customers that APSEZ's ports do not.</p>
+<p><strong>Market penetration</strong> at Mundra is the most suitable and acceptable vector. It builds on the one sustained advantage and earns the highest returns. Mundra's volume grew 8% in H1 FY27. However, the timing is a problem. New berths, such as the fifth container terminal and the VLCC jetty, will pay back largely after February 2031, so their value depends on renewal terms that APSEZ does not control.</p>
+<p><strong>Market development</strong> has two parts:</p>
+<ul class="plain">
+<li><strong>In India</strong>, it spreads concession risk across states. The returns so far are weak: non-Mundra volume is flat.</li>
+<li><strong>Abroad</strong>, international ROCE was 8% in FY26, excluding NQXT. The Q2 FY27 margin rise to 48% reflects NQXT's contribution alongside the Colombo and Tanzania ramp-ups (APSEZ, 2026d). Because NQXT is a coal-export terminal, it also adds exposure to the energy transition. Haifa adds geopolitical exposure: APSEZ reported that the West Asia crisis disrupted logistics in Q1 FY27 (APSEZ, 2026d).</li>
+</ul>
+<p><strong>Product development</strong> (trucking, freight forwarding, warehousing, rail) is suitable because it deepens the port bundle. Its acceptability varies. Port-linked logistics parks and warehousing earn a 30% EBITDA margin, but trucking earns 8.4%. <strong>Related diversification</strong> into offshore and subsea services has the weakest link to APSEZ's sustained advantage and depends on acquired capabilities. This is where the risk of over-diversification is greatest.</p>
+<p>The vectors also differ in the capital and execution they demand:</p>
+<ul class="plain">
+<li><strong>Penetration</strong> is the most capital-hungry. The Mundra expansion cleared in 2024 is a ₹45,000 cr programme (Business Standard, 2024), but it builds on proven operating routines.</li>
+<li><strong>International market development</strong> uses large, lumpy deals. Colombo Phase II cost about US$750m (APSEZ, 2026d). NQXT was paid for in new shares, which raised APSEZ's share count by about 6.7% (APSEZ, 2026a). Execution risk is political as well as operational.</li>
+<li><strong>Product development and diversification</strong> need less capital per rupee of revenue but different management skills: managing trucking fleets, freight-forwarding sales and offshore-energy contracts. Most of these skills were acquired rather than built.</li>
+</ul>
+<p>The danger is less that any single initiative fails than that management attention and capital are spread across four vectors at once while the core concession is still unresolved.</p>
+<p>A rough cost-of-capital test sharpens these judgements. FY26 interest and bank charges were about 7.6% of average gross debt. That is the author's estimate of the pre-tax cost of debt, not a WACC. Equity is costlier than debt, so segments earning 8–10% ROCE probably earn less than their full cost of capital today. Management's FY31 targets of ₹91,500 cr revenue and ₹52,000 cr EBITDA imply a 56.8% margin, against 59% in FY26 (APSEZ, 2026d). In effect, management is planning for some dilution.</p>
+</div>
+
+<figure>
+<figcaption>Exhibit 7. Ansoff matrix: existing initiatives (as of 28 Oct 2026) and <span class="prop">proposals in this report</span></figcaption>
+<div class="ansoff">
+  <div></div><div class="hd">Existing services</div><div class="hd">New services</div>
+  <div class="side">Existing markets</div>
+  <div class="cell"><h4>Market penetration</h4><ul>
+    <li>Mundra expansion: container terminal 5, VLCC jetty; ₹45,000 cr expansion cleared (2024)</li>
+    <li>Empty-container yard at Mundra (Q2 FY27)</li>
+    <li>Outcome: Mundra +8% (H1 FY27), but national container share down 1.5 pts</li>
+    <li class="prop">Proposed (Rec 3): multi-year contracts with container lines beyond the JV partners; rail-linked landed-cost offer</li></ul></div>
+  <div class="cell"><h4>Product development (port-linked)</h4><ul>
+    <li>Rail (68 container rakes), 12 logistics parks, warehousing, agri-silos</li>
+    <li>Trucking (3.4× revenue in FY26), international freight network</li>
+    <li>Outcome: logistics ROCE 10%; trucking margin 8.4%</li>
+    <li class="prop">Proposed (Rec 2): favour port-linked parks (30% margin) over trucking</li></ul></div>
+  <div class="side">New markets</div>
+  <div class="cell"><h4>Market development</h4><ul>
+    <li>India: Gopalpur, Paradip dry-bulk berths (30-yr, 18 MMT), Haldia, Vizhinjam export–import</li>
+    <li>Abroad: Haifa, Dar es Salaam, Colombo Phase II (US$750m), NQXT (acquired for shares, Dec 2025)</li>
+    <li>Outcome: non-Mundra flat; international ROCE 8% (excl. NQXT)</li>
+    <li class="prop">Proposed (Rec 4): port-by-port review; sell minority stakes to recycle capital</li></ul></div>
+  <div class="cell"><h4>Related diversification</h4><ul>
+    <li>Offshore support vessels (Astro Offshore, TAHID) in the Middle East, Africa and South Asia; subsea robotics; entry into the European subsea market (Q2 FY27)</li>
+    <li>Standalone inland logistics parks (Kanpur, ₹1,500 cr)</li>
+    <li>Outcome: marine ROCE 13%</li>
+    <li class="prop">Proposed (Rec 2): staged approval before further acquisitions</li></ul></div>
+</div>
+<div class="src">Sources: APSEZ (2025; 2026a; 2026d). Classification is the author's.</div>
+</figure>
+
+<figure>
+<figcaption>Exhibit 8. Evaluation of each growth vector</figcaption>
+<table>
+<tr><th>Vector</th><th>Suitability (fit with resources and forces)</th><th>Acceptability (return, risk)</th><th>Feasibility (capital, execution)</th><th>Verdict</th></tr>
+<tr><td>Penetration (Mundra)</td><td>High: builds on R1; counters container rivalry</td><td>High return (23% ROCE); renewal risk after 2031</td><td>High: internal cash flow</td><td>Continue, gated on tenure</td></tr>
+<tr><td>Market development, India</td><td>Medium: spreads grantor risk</td><td>Low so far: flat volume, east margin 41%</td><td>High</td><td>Fix before expanding</td></tr>
+<tr><td>Market development, international</td><td>Medium: hedge across geographies</td><td>Low–medium: 8% ROCE; geopolitics; coal exposure</td><td>Medium: share-funded deals</td><td>Selective</td></tr>
+<tr><td>Product development</td><td>High: deepens the bundle</td><td>Mixed: parks 30% vs trucking 8% margin</td><td>High: asset-light</td><td>Focus on port-linked services</td></tr>
+<tr><td>Related diversification</td><td>Low: weak link to R1</td><td>Medium: 13% ROCE; acquired skills</td><td>Medium</td><td>Slow down; stage-gate</td></tr>
+</table>
+<div class="src">Criteria follow Whittington <em>et al.</em> (2023). Data: APSEZ (2026a; 2026d).</div>
+</figure>
+
+<h2>9. Integrated strategic assessment</h2>
+<div class="prose">
+<p>Combining the frameworks produces one central finding. The resource that funds APSEZ, the Mundra complex, is also the resource most exposed to the two strongest external pressures. Those pressures are the grantor's bargaining power as 2031 approaches and state-led container capacity on the west coast. Meanwhile the Ansoff vectors mostly direct new capital to areas where VRIO finds parity or temporary advantage. The strategy is therefore a hedge. It reduces dependence on one site and one concession, but it dilutes returns. That trade-off can be rational, but only if the new segments eventually earn above their cost of capital, and the evidence does not yet show this.</p>
+<p>The integration questions in the brief can be answered directly:</p>
+<ul class="plain">
+<li><strong>Does APSEZ's VRIO position overcome the pressures identified by the Five Forces?</strong> For bulk, liquids and cargo linked to the SEZ, largely yes. Site, land and dedicated infrastructure neutralise buyer power and deter entry. For containers, only partly: falling market share shows that the joint ventures and the logistics bundle have not offset rising rivalry.</li>
+<li><strong>Which resources best support growth?</strong> Mundra supports penetration. The transshipment assets support market development. No sustained advantage clearly supports diversification.</li>
+<li><strong>Is diversification backed by organisational capability?</strong> Marine diversification rests on acquired firms rather than on skills transferred from the ports, and trucking earns parity margins. So the organisational support is thinner than the growth targets imply.</li>
+<li><strong>Which external threats could erode the current advantages?</strong> Three stand out: the energy transition (coal is about 30% of domestic cargo, and NQXT is a coal terminal), conflict in West Asia (Haifa), and any shift in state policy on concession renewal.</li>
+</ul>
+<p>The integration also resolves four apparent contradictions (Exhibit 9):</p>
+<ul class="plain">
+<li><strong>Buyer power vs margins.</strong> High container buyer power coexists with 72% domestic margins because of cargo mix, captive harbour services and deconsolidated joint ventures. This is not evidence of weak buyers.</li>
+<li><strong>"Network" vs portfolio.</strong> The "network" that APSEZ describes behaves like a portfolio: when one site grows, the others do not.</li>
+<li><strong>Two kinds of discipline.</strong> APSEZ is disciplined about leverage but not about capex planning.</li>
+<li><strong>Average tenure vs Mundra.</strong> APSEZ reports an average remaining concession tenure of "30+ years" (APSEZ, 2026d). That average is not weighted by earnings, and Mundra, about a third of domestic-port EBITDA (31% in Q2 FY27, before JV income), expires in just over four years.</li>
+</ul>
+<p>Scale is best understood as a temporary advantage. Rivals can match capacity within a decade. Vadhavan's planned first phase of about 15 million TEU (Seatrade Maritime News, n.d.) is larger than APSEZ's current annualised domestic container throughput of about 13 million TEU, although estimates of when that phase will be complete range from around 2030 (ThePrint, 2024) to the mid-2030s. What lasts is site quality, contiguous land and the time already invested. Size alone does not.</p>
+<p>Exhibit 11 sets out three scenarios for 2031:</p>
+<ul class="plain">
+<li><strong>Renewal on similar terms.</strong> The current strategy works and diversification is optional.</li>
+<li><strong>Renewal at a higher revenue share or with conditions.</strong> Mundra's margin compresses, and the international and marine businesses become more valuable as earnings stabilisers.</li>
+<li><strong>Re-tendering or partial renewal.</strong> This would be damaging. The container-line partners would gain bargaining power in the run-up, because their rights end on the same date.</li>
+</ul>
+<p>An early Vadhavan opening would make the second and third scenarios worse. APSEZ's position is therefore strong and likely to last until 2031. After 2031 it depends on two things: the concession outcome, and whether diversification starts to earn its cost of capital.</p>
+</div>
+
+<figure>
+<figcaption>Exhibit 9. Integration matrix: how the frameworks connect</figcaption>
+<table>
+<tr><th>Resource (VRIO outcome)</th><th>Forces it counters</th><th>Ansoff vectors it enables</th><th>Financial evidence</th><th>Threat that erodes it</th><th>Horizon</th></tr>
+<tr><td>R1 Mundra (sustained, conditional)</td><td>Bulk/liquid buyers; entry</td><td>Penetration</td><td>Domestic ROCE 23%; 72% margin</td><td>Grantor power; Vadhavan</td><td>Secure to 2031; uncertain after</td></tr>
+<tr><td>R3 Transshipment (temporary)</td><td>Rivalry for transshipment</td><td>Market development</td><td>International margin 48% (Q2)</td><td>New state hubs; Colombo rivals</td><td>Medium</td></tr>
+<tr><td>R4 JVs (temporary)</td><td>Container buyer power (partly)</td><td>Penetration</td><td>AICTPL margin ~57%</td><td>Partners' leverage near 2031</td><td>To 2031</td></tr>
+<tr><td>R5–R6 Logistics (parity)</td><td>Little</td><td>Product development</td><td>ROCE 10%</td><td>CONCOR; open corridor</td><td>—</td></tr>
+<tr><td>R7 Marine (temporary)</td><td>Supplier (dredging) power</td><td>Diversification</td><td>ROCE 13%</td><td>Offshore cycle; acquired skills</td><td>Medium</td></tr>
+</table>
+</figure>
+
+<figure>
+<figcaption>Exhibit 10. Strategy synthesis: pressures, resources, growth and responses</figcaption>
+<svg viewBox="0 0 760 300" width="100%" role="img" aria-label="Synthesis diagram">
+  <defs><marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5b6470"/></marker></defs>
+  <g font-size="10.5">
+    <text x="85" y="16" text-anchor="middle" font-weight="700" fill="#1f4e79">FIVE FORCES</text>
+    <text x="275" y="16" text-anchor="middle" font-weight="700" fill="#1f4e79">VRIO RESOURCES</text>
+    <text x="475" y="16" text-anchor="middle" font-weight="700" fill="#1f4e79">ANSOFF VECTORS</text>
+    <text x="668" y="16" text-anchor="middle" font-weight="700" fill="#1f4e79">RECOMMENDATIONS</text>
+
+    <rect x="8" y="30" width="155" height="48" rx="5" fill="#f6d5d2" stroke="#c9ced6"/><text x="85" y="50" text-anchor="middle">Grantor power at 2031</text><text x="85" y="66" text-anchor="middle">(supplier)</text>
+    <rect x="8" y="98" width="155" height="48" rx="5" fill="#f6d5d2" stroke="#c9ced6"/><text x="85" y="118" text-anchor="middle">Container rivalry and</text><text x="85" y="134" text-anchor="middle">state entry (Vadhavan)</text>
+    <rect x="8" y="166" width="155" height="48" rx="5" fill="#fbeccc" stroke="#c9ced6"/><text x="85" y="186" text-anchor="middle">Container-line buyer power</text><text x="85" y="202" text-anchor="middle">(co-opetition)</text>
+    <rect x="8" y="234" width="155" height="48" rx="5" fill="#fbeccc" stroke="#c9ced6"/><text x="85" y="254" text-anchor="middle">East-coast rivalry;</text><text x="85" y="270" text-anchor="middle">coal decline</text>
+
+    <rect x="198" y="46" width="155" height="70" rx="5" fill="#dcefe3" stroke="#1e5e3a"/><text x="275" y="70" text-anchor="middle" font-weight="700">R1 Mundra complex</text><text x="275" y="86" text-anchor="middle">Sustained, conditional</text><text x="275" y="102" text-anchor="middle">~⅓ of domestic EBITDA</text>
+    <rect x="198" y="140" width="155" height="48" rx="5" fill="#fbeccc" stroke="#c9ced6"/><text x="275" y="160" text-anchor="middle">R3/R4/R7 Temporary</text><text x="275" y="176" text-anchor="middle">transshipment, JVs, marine</text>
+    <rect x="198" y="212" width="155" height="48" rx="5" fill="#f2f4f7" stroke="#c9ced6"/><text x="275" y="232" text-anchor="middle">R2/R5/R6/R9 Parity</text><text x="275" y="248" text-anchor="middle">other ports, logistics, finance</text>
+
+    <rect x="398" y="46" width="155" height="48" rx="5" fill="#dcefe3" stroke="#c9ced6"/><text x="475" y="66" text-anchor="middle">Penetration</text><text x="475" y="82" text-anchor="middle">ROCE 23%</text>
+    <rect x="398" y="112" width="155" height="48" rx="5" fill="#fbeccc" stroke="#c9ced6"/><text x="475" y="132" text-anchor="middle">Market development</text><text x="475" y="148" text-anchor="middle">ROCE 8% (intl)</text>
+    <rect x="398" y="178" width="155" height="48" rx="5" fill="#fbeccc" stroke="#c9ced6"/><text x="475" y="198" text-anchor="middle">Product development</text><text x="475" y="214" text-anchor="middle">ROCE 10%</text>
+    <rect x="398" y="244" width="155" height="48" rx="5" fill="#f6d5d2" stroke="#c9ced6"/><text x="475" y="264" text-anchor="middle">Diversification</text><text x="475" y="280" text-anchor="middle">ROCE 13%; weak link</text>
+
+    <rect x="592" y="30" width="160" height="48" rx="5" fill="#ffffff" stroke="#1f4e79"/><text x="672" y="50" text-anchor="middle" font-weight="700">1 Secure Mundra tenure</text><text x="672" y="66" text-anchor="middle">gate long-payback capex</text>
+    <rect x="592" y="98" width="160" height="48" rx="5" fill="#ffffff" stroke="#1f4e79"/><text x="672" y="118" text-anchor="middle" font-weight="700">3 Defend container share</text><text x="672" y="134" text-anchor="middle">before Vadhavan</text>
+    <rect x="592" y="166" width="160" height="48" rx="5" fill="#ffffff" stroke="#1f4e79"/><text x="672" y="186" text-anchor="middle" font-weight="700">2 Segment return gate</text><text x="672" y="202" text-anchor="middle">logistics, marine, intl</text>
+    <rect x="592" y="234" width="160" height="48" rx="5" fill="#ffffff" stroke="#1f4e79"/><text x="672" y="254" text-anchor="middle" font-weight="700">4 Turn around or recycle</text><text x="672" y="270" text-anchor="middle">non-Mundra ports</text>
+
+    <g stroke="#5b6470" stroke-width="1.2" fill="none">
+      <line x1="163" y1="54" x2="196" y2="70" marker-end="url(#a2)"/>
+      <line x1="163" y1="122" x2="196" y2="95" marker-end="url(#a2)"/>
+      <line x1="163" y1="190" x2="196" y2="165" marker-end="url(#a2)"/>
+      <line x1="163" y1="258" x2="196" y2="236" marker-end="url(#a2)"/>
+      <line x1="353" y1="80" x2="396" y2="70" marker-end="url(#a2)"/>
+      <line x1="353" y1="164" x2="396" y2="136" marker-end="url(#a2)"/>
+      <line x1="353" y1="164" x2="396" y2="262" marker-end="url(#a2)"/>
+      <line x1="353" y1="236" x2="396" y2="202" marker-end="url(#a2)"/>
+      <line x1="553" y1="70" x2="590" y2="54" marker-end="url(#a2)"/>
+      <line x1="553" y1="70" x2="590" y2="122" marker-end="url(#a2)"/>
+      <line x1="553" y1="136" x2="590" y2="258" marker-end="url(#a2)"/>
+      <line x1="553" y1="202" x2="590" y2="190" marker-end="url(#a2)"/>
+      <line x1="553" y1="268" x2="590" y2="190" marker-end="url(#a2)"/>
+    </g>
+  </g>
+</svg>
+<div class="src">Colour shows strength: green = sustained / high return; amber = temporary / moderate; red = high pressure or weak fit; grey = parity.</div>
+</figure>
+
+<figure>
+<figcaption>Exhibit 11. Mundra 2031 scenarios (qualitative, not forecasts)</figcaption>
+<table>
+<tr><th>Scenario</th><th>Effect on R1</th><th>Effect on strategy</th><th>Early warning indicator</th></tr>
+<tr><td>A. Renewal on similar terms</td><td>Advantage extends</td><td>Current portfolio approach holds</td><td>Signed extension; signed sub-concessions</td></tr>
+<tr><td>B. Renewal at higher revenue share or with conditions</td><td>Margin compresses</td><td>International and marine become stabilisers; return gate becomes critical</td><td>GMB terms published; royalty revision</td></tr>
+<tr><td>C. Re-tender or partial renewal</td><td>Advantage at risk</td><td>JV partners' leverage peaks; Mundra capex stranded</td><td>Delay beyond 2028; tender notice</td></tr>
+</table>
+</figure>
+
+<h2>10. Strategic recommendations</h2>
+<div class="prose">
+<p>The four recommendations below follow from the preceding analysis, ranked by impact and urgency (Exhibit 12). Each draws on at least three frameworks. Each is either new, or explicitly modifies an initiative APSEZ has already announced. The KPI baselines come from the data used above.</p>
+</div>
+
+<div class="rec"><h3>Recommendation 1 (priority 1): Make Mundra's tenure durable before 2029</h3>
+<table>
+<tr><td>Objective</td><td>Turn the only sustained advantage from a contingent asset into a durable one, at least two years before the 16 February 2031 expiry.</td></tr>
+<tr><td>Evidence</td><td>Concession expires 2031; West Basin and the container JV sub-concessions are unsigned; Mundra carries 45% of domestic volume (APSEZ, 2026b; 2026d).</td></tr>
+<tr><td>Frameworks</td><td>VRIO R1 conditional; supplier power (grantor); scenarios B and C; timing risk in Ansoff penetration.</td></tr>
+<tr><td>Implementation</td><td>(i) Finalise the outstanding supplementary and sub-concession agreements. (ii) Offer GMB a transparent value-sharing structure (for example, a revenue share that rises with volume) in exchange for tenure, accepting some margin. (iii) Negotiate renewal of the MSC and CMA CGM JV rights alongside multi-year volume commitments. (iv) Until tenure is secured, approve new Mundra projects only if they pay back before 2031. (v) Disclose an expiry schedule weighted by EBITDA. <em>This modifies APSEZ's reported extension application (CargoConnect, n.d.).</em></td></tr>
+<tr><td>Resources and capital</td><td>Mainly management and legal effort. The real cost is any higher royalty, so the design should limit the margin given up.</td></tr>
+<tr><td>Risks</td><td>Political sensitivity; terms worse than today; public scrutiny of any extension without competitive bidding.</td></tr>
+<tr><td>Expected benefit</td><td>Removes the largest single contingency on group value and protects about a third of domestic-port EBITDA.</td></tr>
+<tr><td>KPIs</td><td>Extension signed (target: by FY29); share of EBITDA with more than 10 years' tenure (baseline: Mundra, about 31% of domestic EBITDA, has just over 4 years); share of Mundra capex with payback after 2031; JV volume commitments signed.</td></tr>
+</table></div>
+
+<div class="rec"><h3>Recommendation 2 (priority 2): Introduce a return gate for non-port segments</h3>
+<table>
+<tr><td>Objective</td><td>Stop growth from diluting returns, by funding logistics, marine and international expansion only where it can beat the cost of capital.</td></tr>
+<tr><td>Evidence</td><td>Segment ROCE of 10% (logistics), 13% (marine) and 8% (international) against 23% for domestic ports; capex overshoot; implied FY31 margin of 56.8% (APSEZ, 2026a; 2026d).</td></tr>
+<tr><td>Frameworks</td><td>VRIO parity for R5–R6; Ansoff evaluation; the 5F finding that logistics is competitive.</td></tr>
+<tr><td>Implementation</td><td>Publish a hurdle (for example, ROCE above the consolidated level within three years of investment). Stage-gate trucking and forwarding growth, and future marine acquisitions. Shift logistics capex towards port-linked parks and warehousing (30% margin). Report ROCE for every segment including NQXT, and track capex against guidance.</td></tr>
+<tr><td>Resources and capital</td><td>Redirects part of FY27 capex (₹15–17k cr guidance); no new capital is needed.</td></tr>
+<tr><td>Risks</td><td>Slower revenue growth against the FY31 ambition; possible negative market reaction.</td></tr>
+<tr><td>Expected benefit</td><td>Holds consolidated ROCE near or above 16% while the hedge is built.</td></tr>
+<tr><td>KPIs</td><td>Segment ROCE (FY26 baselines: 10% / 13% / 8%); capex variance against guidance (baseline +28–39%); share of capex going to segments below consolidated ROCE.</td></tr>
+</table></div>
+
+<div class="rec"><h3>Recommendation 3 (priority 3): Defend west-coast container share before Vadhavan</h3>
+<table>
+<tr><td>Objective</td><td>Stop the decline in container share and lock in volume before new state capacity opens around 2030.</td></tr>
+<tr><td>Evidence</td><td>Container share fell from 45.9% to 44.4%; JNPA passed 8m TEU; APSEZ rail TEU fell 6.4%; container buyer power is high (APSEZ, 2026d; Free Press Journal, 2026).</td></tr>
+<tr><td>Frameworks</td><td>5F rivalry, entry and buyers; VRIN partial N for R1/R4; Ansoff penetration.</td></tr>
+<tr><td>Implementation</td><td>Multi-year service agreements with container lines beyond the two JV partners. A guaranteed door-to-door cost from Mundra to northern inland depots, combining port, rail and freight-corridor services. Use Vizhinjam as a feeder hub for APSEZ gateway ports. <em>This focuses the existing shore-to-door strategy on containers.</em></td></tr>
+<tr><td>Resources and capital</td><td>Moderate: rakes and terminal productivity. Not quantified from disclosed data.</td></tr>
+<tr><td>Risks</td><td>Price concessions erode margin; container lines may still split calls across ports.</td></tr>
+<tr><td>Expected benefit</td><td>Protects the contested segment, where buyer power is highest, before capacity arrives.</td></tr>
+<tr><td>KPIs</td><td>Container share (baseline 44.4%, Q2 FY27); Mundra TEU growth against JNPA; rail TEU (baseline 167,453 per quarter); share of container volume under multi-year contracts (new disclosure).</td></tr>
+</table></div>
+
+<div class="rec"><h3>Recommendation 4 (priority 4): Turn around or recycle the non-Mundra portfolio</h3>
+<table>
+<tr><td>Objective</td><td>Raise returns at ports with flat volumes and falling margins, or release the capital tied up in them.</td></tr>
+<tr><td>Evidence</td><td>Non-Mundra volume grew 0% in H1 FY27; east-coast margin fell from 50% to 41%; Visakhapatnam coal terminal exit (APSEZ, 2026b; 2026d).</td></tr>
+<tr><td>Frameworks</td><td>VRIN R2 parity; factor-market logic (Barney, 1986); Ansoff domestic market development; east-coast rivalry.</td></tr>
+<tr><td>Implementation</td><td>A port-by-port review of cargo mix, with a planned move away from coal towards minerals and containers. Sell minority stakes in mature ports to long-term infrastructure investors, and redeploy the proceeds to R1 and R3. <em>No such stake-sale programme was found in the disclosures reviewed.</em></td></tr>
+<tr><td>Resources and capital</td><td>Releases rather than consumes capital; transaction costs.</td></tr>
+<tr><td>Risks</td><td>Valuation discounts; governance with co-investors; signalling.</td></tr>
+<tr><td>Expected benefit</td><td>Higher portfolio ROCE and funding for the sustained advantage, without extra leverage.</td></tr>
+<tr><td>KPIs</td><td>Non-Mundra volume growth (baseline 0%); east-cluster EBITDA margin (baseline 41%); capital recycled.</td></tr>
+</table></div>
+
+<figure>
+<figcaption>Exhibit 12. Prioritisation of recommendations</figcaption>
+<table>
+<tr><th>#</th><th>Recommendation</th><th>Impact</th><th>Urgency</th><th>Ease</th><th>New or modified</th></tr>
+<tr><td>1</td><td>Durable Mundra tenure; capex gating</td><td>Very high</td><td>High (before 2029)</td><td>Low</td><td>Modifies existing application</td></tr>
+<tr><td>2</td><td>Segment return gate</td><td>High</td><td>High (FY27 capex raised)</td><td>High</td><td>New</td></tr>
+<tr><td>3</td><td>Container-share defence</td><td>High</td><td>Medium (before c.2030)</td><td>Medium</td><td>Focuses existing strategy</td></tr>
+<tr><td>4</td><td>Non-Mundra turnaround or recycling</td><td>Medium</td><td>Medium</td><td>Medium</td><td>New</td></tr>
+</table>
+</figure>
+
+<h2>11. Conclusion</h2>
+<div class="prose">
+<p>APSEZ is strongly placed in a moderately attractive industry, but its strength is narrower and more time-bound than its scale suggests. The frameworks agree that the Mundra complex is the real source of advantage. They disagree about its durability, for reasons that are useful: the threats come from outside, through state-led container capacity, and from inside, through contract governance. Most of APSEZ's growth is placed in segments where it has parity, which is a defensible hedge only if those segments start to earn their cost of capital. The priority is therefore to secure Mundra before 2031 and to make the rest of the portfolio earn its keep.</p>
+<p>This assessment has limits. ROCE is company-defined. Peer data come from secondary reports. No primary record of the concession negotiations was available. Further research should obtain the Gujarat Maritime Board's terms, the peers' audited accounts and an independent estimate of APSEZ's cost of capital, since each could change the strength of the conclusions above.</p>
+</div>
+
+</main>
+
+<section class="refs pb">
+<h2>References</h2>
+<p>Adani Ports and Special Economic Zone Ltd (2025) <em>APSEZ completes acquisition of NQXT Australia</em> [Press release]. 23 December. Available at: https://www.adani.com/newsroom/media-releases/apsez-completes-acquisition-of-nqxt-australia (Accessed: 4 November 2026).</p>
+<p>Adani Ports and Special Economic Zone Ltd (2026a) <em>Submission of media release and investor presentation on audited financial results for the quarter and financial year ended March 31, 2026</em> (Ref. APSEZL/SECT/2026-27/13). National Stock Exchange of India, 30 April. Available at: https://nsearchives.nseindia.com/corporate/rkbhagia_30042026135819_IntimationofPRandIP.pdf (Accessed: 4 November 2026).</p>
+<p>Adani Ports and Special Economic Zone Ltd (2026b) <em>Integrated annual report 2025-26: consolidated financial statements</em>. Ahmedabad: APSEZ. Available at: https://www.adaniports.com/digital-reports/ports/2026/consolidated-financial-statements.pdf (Accessed: 4 November 2026).</p>
+<p>Adani Ports and Special Economic Zone Ltd (2026c) <em>Integrated annual report 2025-26: statutory reports</em> (including Business Responsibility and Sustainability Report). Ahmedabad: APSEZ. Available at: https://www.adaniports.com/digital-reports/ports/2026/statutory-reports.pdf (Accessed: 4 November 2026).</p>
+<p>Adani Ports and Special Economic Zone Ltd (2026d) <em>Submission of media release and investor presentation on unaudited financial results for the quarter and half year ended September 30, 2026</em>. National Stock Exchange of India, 28 October. Available at: https://nsearchives.nseindia.com/corporate/rkbhagia_28102026124435_IntimationofPRandIP.pdf (Accessed: 4 November 2026).</p>
+<p>Adler, N., Hirte, G., Kumar, S. and Niemeier, H.-M. (2022) 'The impact of specialization, ownership, competition and regulation on efficiency: a case study of Indian seaports', <em>Maritime Economics &amp; Logistics</em>, 24(3), pp. 507–536. doi: 10.1057/s41278-021-00200-y.</p>
+<p>Ansoff, H.I. (1957) 'Strategies for diversification', <em>Harvard Business Review</em>, 35(5), pp. 113–124.</p>
+<p>Barney, J.B. (1986) 'Strategic factor markets: expectations, luck, and business strategy', <em>Management Science</em>, 32(10), pp. 1231–1241. doi: 10.1287/mnsc.32.10.1231.</p>
+<p>Barney, J. (1991) 'Firm resources and sustained competitive advantage', <em>Journal of Management</em>, 17(1), pp. 99–120.</p>
+<p>Barney, J.B. (1995) 'Looking inside for competitive advantage', <em>Academy of Management Executive</em>, 9(4), pp. 49–61.</p>
+<p>Barney, J.B. and Hesterly, W.S. (2021) <em>Strategic management and competitive advantage: concepts and cases</em>. 6th edn. Hoboken, NJ: Pearson.</p>
+<p>Brandenburger, A.M. and Nalebuff, B.J. (1996) <em>Co-opetition</em>. New York: Currency Doubleday.</p>
+<p>Business Standard (2024) 'Adani gets environmental nod for Rs 45,000 cr Mundra port expansion', <em>Business Standard</em>, 17 June. Available at: https://www.business-standard.com/companies/news/adani-gets-environmental-nod-for-rs-45000-cr-mundra-port-expansion-124061700305_1.html (Accessed: 4 November 2026).</p>
+<p>CargoConnect (n.d.) 'Gujarat at crossroads as pioneer port concessions near expiry without clear extension framework', <em>Cargo Connect</em>. Available at: https://cargoconnect.co.in/shipping/gujarat-at-crossroads-as-pioneer-port-concessions-near-expiry-without-clear-extension-framework (Accessed: 4 November 2026).</p>
+<p>Dierickx, I. and Cool, K. (1989) 'Asset stock accumulation and sustainability of competitive advantage', <em>Management Science</em>, 35(12), pp. 1504–1511. doi: 10.1287/mnsc.35.12.1504.</p>
+<p>Free Press Journal (2026) 'Navi Mumbai news: JNPA crosses 8 million TEUs, hits 100 MMT cargo in FY 2025–26, launches Jebel Ali–Jeddah service', <em>Free Press Journal</em>. Available at: https://www.freepressjournal.in/mumbai/navi-mumbai-news-jnpa-crosses-8-million-teus-hits-100-mmt-cargo-in-fy-202526-launches-jebel-alijeddah-service (Accessed: 4 November 2026).</p>
+<p>Government of India (2025) <em>The Indian Ports Act, 2025</em> (Act No. 27 of 2025). India Code. Available at: https://www.indiacode.nic.in/bitstream/123456789/22358/1/A2025-27.pdf (Accessed: 4 November 2026).</p>
+<p>Haralambides, H.E. (2002) 'Competition, excess capacity, and the pricing of port infrastructure', <em>International Journal of Maritime Economics</em>, 4(4), pp. 323–347. doi: 10.1057/palgrave.ijme.9100053.</p>
+<p>India Shipping News (2021) 'Concession agreements for 4 Gujarat ports to expire in 10 yrs; 3 operators seek extension', <em>India Shipping News</em>. Available at: https://indiashippingnews.com/?p=49390 (Accessed: 4 November 2026).</p>
+<p>Lloyd's List (2025) 'Adani's 3m teu Colombo terminal opens', <em>Lloyd's List</em>, April. Available at: https://www.lloydslist.com/LL1153129/Adani%E2%80%99s-3m-teu-Colombo-terminal-opens (Accessed: 4 November 2026).</p>
+<p>Maritime Gateway (2026) 'Centre notifies India's first mega ports; Adani's Mundra among four to get new status', <em>Maritime Gateway</em>, September. Available at: https://www.maritimegateway.com/centre-notifies-indias-first-mega-ports-adanis-mundra-among-four-to-get-new-status/ (Accessed: 4 November 2026).</p>
+<p>Notteboom, T.E. and Rodrigue, J.-P. (2005) 'Port regionalization: towards a new phase in port development', <em>Maritime Policy &amp; Management</em>, 32(3), pp. 297–313. doi: 10.1080/03088830500139885.</p>
+<p>Paradip Port Authority (2026) <em>Major ports record 915 million tonnes cargo in FY 2025-26, surpass target with 7.06% growth</em>. 6 April. Available at: https://paradipport.gov.in/all_news/major-ports-record-915-million-tonnes-cargo-in-fy-2025-26-surpass-target-with-7-06-growth/ (Accessed: 4 November 2026).</p>
+<p>Porter, M.E. (2008) 'The five competitive forces that shape strategy', <em>Harvard Business Review</em>, 86(1), pp. 78–93.</p>
+<p>Seatrade Maritime News (n.d.) 'India to create $9bn mega port near Mumbai', <em>Seatrade Maritime News</em>. Available at: https://www.seatrade-maritime.com/ports/india-create-9bn-mega-port-near-mumbai (Accessed: 4 November 2026).</p>
+<p>Securities and Exchange Board of India (SEBI) (2025) <em>Final order in the matter of Adicorp Enterprises Private Limited</em>. September. Available at: https://www.sebi.gov.in/sebi_data/attachdocs/sep-2025/order_matter_adicorp.pdf (Accessed: 4 November 2026).</p>
+<p>Shipping Tribune (2026) 'Adani's Vizhinjam transhipment port handles 1.3 million TEUs in FY26', <em>Shipping Tribune</em>. Available at: https://www.shippingtribune.com/index.php/news/shipping/Adani%27s+Vizhinjam+transhipment+port+handles+1.3+million+TEUs+in+FY26 (Accessed: 4 November 2026).</p>
+<p>Swarajya (2024) 'Adani's Colombo port project: first phase expected to be operational by Dec 2024', <em>Swarajya</em>. Available at: https://swarajyamag.com/amp/story/infrastructure/adanis-colombo-port-project-first-phase-expected-to-be-operational-by-dec-2024 (Accessed: 4 November 2026).</p>
+<p>ThePrint (2024) 'Boost for maritime sector as Rs 76,220 cr Vadhavan port planned in Maharashtra gets cabinet nod', <em>ThePrint</em>, June. Available at: https://theprint.in/india/boost-for-maritime-sector-as-rs-76220-cr-vadhavan-port-planned-in-maharashtra-gets-cabinet-nod/2138626 (Accessed: 4 November 2026).</p>
+<p>Whalesbook (2026) 'JSW Infrastructure posts ₹5,361 Cr FY26 revenue, targets 400 mtpa capacity', <em>Whalesbook</em>, May. Available at: https://www.whalesbook.com/corporate-news/English/industrial-goodsservices/JSW-Infrastructure-Posts-indian-rupee5361-Cr-FY26-Revenue-Targets-400-mtpa-Capacity/6a01f1b9707d23e8445cdedc (Accessed: 4 November 2026).</p>
+<p>Whittington, R., Regnér, P., Angwin, D., Johnson, G. and Scholes, K. (2023) <em>Exploring strategy: text and cases</em>. 13th edn. Harlow: Pearson.</p>
+</section>
+
+<section class="pb">
+<h2>Appendix A: Verification and compliance checklist</h2>
+<table>
+<tr><th>Review cycle</th><th>What was checked</th><th>Corrections made</th><th>Status</th></tr>
+<tr><td>1 Requirement coverage</td><td>All four frameworks; integration; 3–5 recommendations with 8 components; 7 visual types; executive summary to references</td><td>Ansoff evaluation criteria added; 2031 scenarios added</td><td>Satisfied</td></tr>
+<tr><td>2 Evidence verification</td><td>All APSEZ figures checked against NSE filings and audited statements</td><td>Revenue basis difference (audited FY25 ₹30,475 cr vs restated ₹31,079 cr) footnoted; Q2 cargo corrected from a secondary 142 MMT (total) to the primary 118 MMT domestic / 24 MMT international split; claims narrowed to what sources support (NQXT valuation dropped; Vadhavan timing given as a range; international-margin drivers attributed as APSEZ states them); every in-text citation matched to the reference list</td><td>Satisfied for company data; peer data secondary (Appendix B)</td></tr>
+<tr><td>3 Framework accuracy</td><td>VRIN-N kept distinct from Porter's substitutes; substitution placed inside VRIO imitability; government treated as acting through the forces, with the grantor adaptation justified</td><td>Domestic new-catchment entry reclassified to market development; offshore/subsea reclassified to related diversification</td><td>Satisfied</td></tr>
+<tr><td>4 Critical analysis</td><td>Each strength tested against counter-evidence (non-Mundra flat; JV deconsolidation; "30+ years" average)</td><td>"Network" claim downgraded to portfolio; acquisition capability rated unproven</td><td>Satisfied</td></tr>
+<tr><td>5 Strategic consistency</td><td>Every recommendation traced to at least three frameworks and to KPI baselines</td><td>Early concession recommendation re-derived from evidence rather than assumed</td><td>Satisfied</td></tr>
+<tr><td>6 Final audit</td><td>Word count; Harvard format; units and periods</td><td>See word count below</td><td id="wcrow">See below</td></tr>
+</table>
+<p class="note" id="wcnote"></p>
+</section>
+
+<section>
+<h2>Appendix B: Data notes and limitations</h2>
+<ul class="plain note">
+<li><strong>Basis.</strong> Segment, EBITDA and ROCE figures use APSEZ's management basis (APSEZ, 2026a; 2026d). ROCE is company-defined and was not recomputed. The FY26 consolidated figure excludes NQXT.</li>
+<li><strong>Scope of derived ratios.</strong> Utilisation (451 MMT ÷ 653 MTPA) uses year-end capacity, so it understates utilisation of average capacity. Revenue per tonne is not quoted as a tariff, because the domestic segment includes harbour and other revenue. The cost-of-debt proxy (≈7.6%) includes bank charges and approximates FY25 gross debt from borrowings. JV figures (AICTPL) are on a 100% basis and are not consolidated.</li>
+<li><strong>Market share.</strong> Shares are calculated by APSEZ. The author's check (451 ÷ 1,668 = 27.0%) uses an all-India total that APSEZ compiled. The full-year FY26 government figure for non-major ports was not available.</li>
+<li><strong>Peers.</strong> JNPA, JSW Infrastructure and Vadhavan figures come from press reports of those organisations' data. Their primary filings were not reviewed.</li>
+<li><strong>Not verified.</strong> No primary GMB document on the Mundra extension was found. A report of a "letter of comfort" (August 2026) is single-source and is not relied on. The terms of the 2026 US case outcomes were not reviewed, and are not relied on.</li>
+<li><strong>Access.</strong> Some trade-press sites were blocked by the research environment, and paywalled academic databases were not accessed. Academic references were checked against bibliographic records (RePEc/DOI), except the page range for Porter (2008).</li>
+<li><strong>Traceability.</strong> The source register, data log and analysis notes are kept in the project repository (folder <code>research/</code>).</li>
+</ul>
+</section>
+
+<script>
+(function(){
+  function words(t){ return (t.replace(/\s+/g,' ').trim().match(/\S+/g)||[]).length; }
+  var prose=0; document.querySelectorAll('#body .prose').forEach(function(d){ prose+=words(d.innerText); });
+  var heads=0; document.querySelectorAll('#body h2, #body h3').forEach(function(h){ heads+=words(h.innerText); });
+  var recs=0; document.querySelectorAll('#body .rec table').forEach(function(t){ recs+=words(t.innerText); });
+  var tables=0; document.querySelectorAll('#body figure').forEach(function(f){ tables+=words(f.innerText); });
+  var main=prose+heads+recs;
+  var txt='Word count. Main body (Sections 1–11: prose, headings and recommendation tables): '+main.toLocaleString('en-GB')+' words, of which recommendation tables '+recs.toLocaleString('en-GB')+'. Exhibits (tables, diagrams, captions and source notes) add '+tables.toLocaleString('en-GB')+' words and are excluded, as are references and appendices.';
+  document.getElementById('wcnote').textContent=txt;
+  document.getElementById('wcrow').textContent='Main body '+main.toLocaleString('en-GB')+' words (target 5,000)';
+  document.getElementById('wc').textContent=main.toLocaleString('en-GB')+' words (main body; excludes exhibits, references and appendices)';
+  window.__wc={prose:prose,heads:heads,recs:recs,tables:tables,main:main};
+})();
+</script>
+</body>
+</html>

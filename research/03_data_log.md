@@ -120,3 +120,16 @@ Conventions:
 | X11 | Implied FY31 EBITDA margin | 52,000/91,500 | 56.8% vs 59% FY26 | Guidance |
 | X12 | Non-major share of India traffic | (1,668 − 915.17)/1,668 | ≈45% | Mixed sources |
 | X13 | International volume FY26 | 500.8 − 451 | ≈50 MMT | Chart value for domestic |
+
+## Added during analysis (4 Nov 2026)
+
+| # | Item | Value | Source | Status |
+|---|---|---|---|---|
+| D61 | Related-party income from operations, FY26 (FY25) | Group companies ₹6,232.30 cr = 16.1% of revenue (₹3,632.32 cr = 11.9%); JVs ₹1,297.12 cr = 3.3% (AICTPL ₹820 cr). Adani Enterprises ₹1,494 cr; Adani Power ₹868 cr | P4 note 32 | CA |
+| D62 | Audited revenue | FY26 ₹38,735.77 cr; FY25 ₹30,475.33 cr (deck FY25: ₹31,079 cr restated) | P4 note 21 | CA |
+| D63 | Domestic cargo mix, Q2 FY27 (Q2 FY26) | Coal 35.0 (37.2) MMT; other dry 20.4 (18.4); containers 3,285k TEU (3,074k) = 50.1 MMT (47.0); liquid 12.5 (11.2) | P3 | PV |
+| D64 | Vizag coal terminal | Termination on mutual consent citing force majeure (FY22); arbitration; held for sale | P4 note 40 | CA |
+| D65 | Board / committees | Chairman Gautam S. Adani; MD Karan Adani; WTD & CEO Ashwani Gupta; Audit Committee chaired by an independent director (P.S. Jayakumar); Reputation Risk Committee | P5 | PV |
+| D66 | SEBI orders | 18 Sep 2025: Hindenburg-linked RPT allegations not established; no penalty on the matters covered | sebi.gov.in (via search) | PS |
+| D67 | JNPA FY26 | >8m TEU, ~100 MMT (headline) | Free Press Journal (via search) | PS |
+| D68 | Vadhavan Phase 1 | ~15m TEU; timing c.2030 (ThePrint) to the mid-2030s (Seatrade) | press | PS, conflicting |
