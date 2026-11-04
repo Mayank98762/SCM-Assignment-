@@ -1,49 +1,61 @@
 %% =====================================================================
 %%  Adani Ports and Special Economic Zone Ltd (APSEZ): A Strategic Analysis
-%%  Standalone LaTeX source. Compile with pdfLaTeX (twice, so that the
-%%  table of contents, cross-references and page totals resolve).
-%%    pdflatex APSEZ_Strategic_Analysis.tex
-%%    pdflatex APSEZ_Strategic_Analysis.tex
-%%  Required packages are all part of a standard TeX Live / Overleaf
-%%  installation.
+%%  Standalone LaTeX source. Compile with pdfLaTeX (run twice so that the
+%%  table of contents and cross-references resolve).
 %% =====================================================================
-\documentclass[11pt,a4paper]{article}
-
-%% ---------------------------------------------------------------------
-%%  Encoding and fonts
-%% ---------------------------------------------------------------------
-\usepackage[T1]{fontenc}
+\documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[british]{babel}
-\usepackage[osf=false]{XCharter}          % Charter serif for body text
-\usepackage[scale=0.92]{sourcesanspro}    % Source Sans for headings, tables, diagrams
-\usepackage[varqu]{inconsolata}           % monospace (\texttt)
-\usepackage{textcomp}
-\usepackage{amsmath}
-\usepackage{microtype}
-\usepackage{tfrupee}                      % Indian rupee sign (\rupee)
-\usepackage{pifont}                       % check and cross marks
-\usepackage{newunicodechar}
-
-%% ---------------------------------------------------------------------
-%%  Page layout, headers and footers
-%% ---------------------------------------------------------------------
-\usepackage[a4paper,top=26mm,bottom=24mm,left=22mm,right=22mm,
-            headheight=14pt,headsep=8mm,footskip=11mm]{geometry}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
 \usepackage{setspace}
-\setstretch{1.12}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.55\baselineskip}
-\setlength{\emergencystretch}{2em}
-\raggedbottom
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs} % professional table rules
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[section]{placeins}
+
+% Additional packages needed by this report's content
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{tfrupee}        % Indian rupee sign (\rupee)
+\usepackage{pifont}         % check and cross marks
+\usepackage{newunicodechar}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xltabular}      % full-width tables that may break across pages
+\usepackage{needspace}
+\usepackage{xcolor}
+\usepackage{tikz}           % diagrams (Exhibits 3 and 10)
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage{xurl}
+
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta,
+urlcolor=cyan,
+pdftitle={Adani Ports and Special Economic Zone Ltd (APSEZ): A Strategic Analysis},
+}
 
 %% ---------------------------------------------------------------------
-%%  Colour palette (matches the original report)
+%%  Exhibits: numbered floats ("Exhibit 1", "Exhibit 2", ...) with the
+%%  caption above the content, styled like standard table captions
 %% ---------------------------------------------------------------------
-\usepackage[table]{xcolor}
-\definecolor{ink}{HTML}{1D2228}
+\floatstyle{plaintop}
+\newfloat{exhibit}{htbp}{loe}
+\floatname{exhibit}{Exhibit}
+\captionsetup[exhibit]{position=top}
+
+%% ---------------------------------------------------------------------
+%%  Diagram colours (Exhibits 3 and 10 refer to colour-coded ratings)
+%% ---------------------------------------------------------------------
 \definecolor{muted}{HTML}{5B6470}
 \definecolor{rulegrey}{HTML}{C9CED6}
 \definecolor{soft}{HTML}{F2F4F7}
@@ -54,92 +66,25 @@
 \definecolor{modink}{HTML}{7A5300}
 \definecolor{highbg}{HTML}{F6D5D2}
 \definecolor{highink}{HTML}{8A2219}
-\definecolor{propink}{HTML}{6A3D00}
-\color{ink}
-
-%% ---------------------------------------------------------------------
-%%  Tables, lists, floats, captions, graphics
-%% ---------------------------------------------------------------------
-\usepackage{array}
-\usepackage{tabularx}
-\usepackage{xltabular}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{enumitem}
-\usepackage{needspace}
-\usepackage{newfloat}
-\usepackage{caption}
-\usepackage[section]{placeins}            % floats never cross a section boundary
-\usepackage{tikz}
-\usetikzlibrary{positioning,arrows.meta,calc}
-
-%% ---------------------------------------------------------------------
-%%  Headings
-%% ---------------------------------------------------------------------
-\usepackage{titlesec}
-\setcounter{secnumdepth}{1}               % number sections only
-\setcounter{tocdepth}{1}
-\titleformat{\section}
-  {\sffamily\bfseries\Large\color{accent}}
-  {\thesection.}{0.45em}{}
-  [{\color{rulegrey}\titlerule[0.6pt]}]
-\titlespacing*{\section}{0pt}{2.2ex plus 0.6ex minus 0.3ex}{1.4ex}
-\titleformat{\subsection}
-  {\sffamily\bfseries\normalsize\color{ink}}
-  {}{0pt}{}
-\titlespacing*{\subsection}{0pt}{1.6ex plus 0.4ex minus 0.2ex}{0.4ex}
-
-%% ---------------------------------------------------------------------
-%%  Hyperlinks and URLs (load late)
-%% ---------------------------------------------------------------------
-\usepackage{xurl}
-\usepackage[hidelinks,unicode,bookmarksnumbered]{hyperref}
-\hypersetup{
-  pdftitle={Adani Ports and Special Economic Zone Ltd (APSEZ): A Strategic Analysis},
-  pdfsubject={Strategic analysis using Porter's Five Forces, VRIN, VRIO and the Ansoff matrix},
-  pdfkeywords={APSEZ, Adani Ports, Five Forces, VRIN, VRIO, Ansoff, strategy},
-  colorlinks=true, linkcolor=accent, urlcolor=accent, citecolor=accent}
-\urlstyle{same}
-
-%% ---------------------------------------------------------------------
-%%  Exhibit float (numbered "Exhibit 1", "Exhibit 2", ...)
-%% ---------------------------------------------------------------------
-\DeclareFloatingEnvironment[
-  fileext=loe, listname={List of Exhibits}, name=Exhibit, placement=htbp
-]{exhibit}
-\captionsetup[exhibit]{
-  position=top, labelsep=period, justification=raggedright,
-  singlelinecheck=false, font={small,sf,bf}, skip=5pt}
-\setlength{\textfloatsep}{14pt plus 4pt minus 4pt}
-\setlength{\floatsep}{12pt plus 3pt minus 3pt}
-\setlength{\intextsep}{12pt plus 3pt minus 3pt}
-\renewcommand{\topfraction}{0.9}
-\renewcommand{\bottomfraction}{0.8}
-\renewcommand{\textfraction}{0.08}
-\renewcommand{\floatpagefraction}{0.75}
 
 %% ---------------------------------------------------------------------
 %%  Helper macros
 %% ---------------------------------------------------------------------
 % Source note beneath an exhibit
-\newcommand{\exsource}[1]{%
-  \par\vspace{3pt}{\sffamily\scriptsize\color{muted}\raggedright #1\par}}
+\newcommand{\exsource}[1]{\par\vspace{4pt}{\footnotesize\raggedright #1\par}}
 % Assessment symbols
 \DeclareRobustCommand{\halfcirc}{\tikz[baseline=-0.62ex]{%
   \draw[line width=0.45pt] (0,0) circle (0.78ex);
   \fill (0,0.78ex) arc (90:270:0.78ex) -- cycle;}}
-\DeclareRobustCommand{\yes}{\textcolor{lowink}{\ding{51}}}
-\DeclareRobustCommand{\no}{\textcolor{highink}{\ding{55}}}
-\DeclareRobustCommand{\partly}{\textcolor{modink}{\halfcirc}}
-\newcommand{\yestext}[1]{\textcolor{lowink}{\textbf{#1}}}
-\newcommand{\notext}[1]{\textcolor{highink}{\textbf{#1}}}
-\newcommand{\parttext}[1]{\textcolor{modink}{\textbf{#1}}}
+\DeclareRobustCommand{\yes}{\ding{51}}
+\DeclareRobustCommand{\no}{\ding{55}}
+\DeclareRobustCommand{\partly}{\halfcirc}
 % Proposals shown inside the Ansoff matrix
-\newcommand{\prop}[1]{\textcolor{propink}{\textit{#1}}}
+\newcommand{\prop}[1]{\textit{#1}}
 
 % Unicode characters used in the text
 \newunicodechar{₹}{{\rupee}}
-\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}% → (overrides the kernel's text arrow)
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}% →
 \newunicodechar{≈}{\ensuremath{\approx}}
 \newunicodechar{≥}{\ensuremath{\geq}}
 \newunicodechar{−}{\ensuremath{-}}
@@ -153,106 +98,66 @@
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{Q}[1]{>{\raggedleft\arraybackslash}p{#1}}
-\newcolumntype{S}{>{\centering\arraybackslash}p{4.2mm}}
+\newcolumntype{S}{>{\centering\arraybackslash}p{5.4mm}}
 
-% Common table set-up
-\newcommand{\tablesetup}{%
-  \sffamily\footnotesize
-  \renewcommand{\arraystretch}{1.28}%
-  \setlength{\tabcolsep}{4pt}%
-  \arrayrulecolor{muted}}
-\newcommand{\rowsep}{\arrayrulecolor{rulegrey}\midrule\arrayrulecolor{muted}}
-\newcommand{\hdr}{\rowcolor{soft}}
+% Common table set-up (booktabs rules, compact text so tables fit the margins)
+\newcommand{\tablesetup}{\footnotesize\renewcommand{\arraystretch}{1.25}\setlength{\tabcolsep}{4pt}}
+\newcommand{\rowsep}{\addlinespace[3pt]}
+\newcommand{\reclabel}[1]{\textbf{#1}}
 
-% Compact lists
-\setlist[itemize]{leftmargin=1.4em, itemsep=0.25ex, topsep=0.3ex, parsep=0pt}
+% Compact lists inside table cells
 \newlist{celllist}{itemize}{1}
 \setlist[celllist]{label=\textbullet, leftmargin=1.0em, itemsep=0.2ex,
   topsep=0.2ex, parsep=0pt, partopsep=0pt, before=\vspace{-0.3ex}, after=\vspace{-0.9ex}}
 
-% Recommendation tables
-\newcommand{\reclabel}[1]{\cellcolor{soft}\textbf{#1}}
-% Recommendation tables are written as explicit xltabular blocks (a two-column
-% label/content layout that may break across pages without overflowing).
-
-
 %% ---------------------------------------------------------------------
-%%  Running headers and footers
+%%  Title
 %% ---------------------------------------------------------------------
-\renewcommand{\sectionmark}[1]{\markboth{#1}{#1}}% \rightmark = first section on the page
-\newcommand{\footleft}{\sffamily\scriptsize\color{muted}APSEZ Strategic Analysis}
-\newcommand{\footright}{\sffamily\scriptsize\color{muted}\thepage\ / \pageref*{LastPage}}
-% Body pages: running header and footer
-\fancypagestyle{body}{%
-  \fancyhf{}%
-  \fancyhead[L]{\sffamily\scriptsize\color{muted}Adani Ports and Special Economic Zone Ltd (APSEZ)}%
-  \fancyhead[R]{\sffamily\scriptsize\color{muted}\nouppercase{\rightmark}}%
-  \fancyfoot[L]{\footleft}%
-  \fancyfoot[R]{\footright}%
-  \renewcommand{\headrulewidth}{0.4pt}%
-  \renewcommand{\headrule}{{\color{rulegrey}\hrule width\headwidth height\headrulewidth}}%
-  \renewcommand{\footrulewidth}{0pt}}
-% Front-matter pages: footer only
-\fancypagestyle{plain}{%
-  \fancyhf{}%
-  \fancyfoot[L]{\footleft}%
-  \fancyfoot[R]{\footright}%
-  \renewcommand{\headrulewidth}{0pt}%
-  \renewcommand{\footrulewidth}{0pt}}
+\title{
+\vspace*{2cm}
+\Huge \textbf{Adani Ports and Special Economic Zone Ltd (APSEZ): A Strategic Analysis} \\
+\vspace{0.5cm}
+\Large Competitive position, resources and growth strategy assessed with Porter's Five Forces, VRIN, VRIO and the Ansoff matrix
+}
 
-%% =====================================================================
+\author{
+\textbf{Assignment:} SCM Assignment: Strategic analysis of APSEZ \\
+\textbf{Student:} [Name / ID] \\
+}
+\date{\textbf{Date:} November 2026}
+
 \begin{document}
 %% =====================================================================
 
 %% ---------------------------------------------------------------------
 %%  Title page
 %% ---------------------------------------------------------------------
-\begin{titlepage}
-  \thispagestyle{empty}
-  \vspace*{48mm}
-  {\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
-   \sffamily\bfseries\fontsize{22}{28}\selectfont\color{accent}
-   Adani Ports and Special Economic Zone Ltd (APSEZ):\\[2pt]
-   A Strategic Analysis\par}
-  \vspace{7mm}
-  {\color{accent}\rule{\linewidth}{1.2pt}\par}
-  \vspace{6mm}
-  {\sffamily\large\color{muted}
-   Competitive position, resources and growth strategy assessed with Porter's
-   Five Forces, VRIN, VRIO and the Ansoff matrix\par}
-  \vspace{18mm}
-  {\sffamily\small
-   \renewcommand{\arraystretch}{1.55}%
-   \newcommand{\metalabel}[1]{\textcolor{muted}{#1}}%
-   \begin{tabular}{@{}p{42mm}p{110mm}@{}}
-     \metalabel{Assignment}       & SCM Assignment: Strategic analysis of APSEZ \\
-     \metalabel{Student}          & [Name / ID] \\
-     \metalabel{Date}             & November 2026 \\
-     \metalabel{Evidence cut-off} & 28 October 2026 (Q2 FY27 results) \\
-     \metalabel{Referencing}      & Harvard (Cite Them Right) \\
-     \metalabel{Word count}       & 4,977 words (main body; excludes exhibits, references and appendices) \\
-   \end{tabular}\par}
-  \vfill
-\end{titlepage}
+\maketitle
+\thispagestyle{empty}
+\vspace{2cm}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}lp{10cm}@{}}
+\toprule
+Evidence cut-off & 28 October 2026 (Q2 FY27 results) \\
+Referencing      & Harvard (Cite Them Right) \\
+Word count       & 4,977 words (main body; excludes exhibits, references and appendices) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\newpage
 
-%% ---------------------------------------------------------------------
-%%  Contents
-%% ---------------------------------------------------------------------
-\pagestyle{plain}
-\begingroup
-  \renewcommand{\contentsname}{Contents}
-  \hypersetup{linkcolor=ink}
-  \tableofcontents
-\endgroup
-\vspace{6mm}
-{\sffamily\footnotesize\color{muted}
+\pagenumbering{roman}
+\tableofcontents
+\vspace{1cm}
+\noindent{\footnotesize
 Units: ₹ cr = ₹ crore (₹10 million). MMT = million metric tonnes. MTPA =
 million tonnes per annum. TEU = twenty-foot equivalent unit. FY = Indian
 financial year ending 31 March (FY26 = April 2025--March 2026). Q2 FY27 =
 July--September 2026. ROCE = return on capital employed, as defined by APSEZ
 unless stated otherwise.\par}
-\clearpage
-\pagestyle{body}
+\newpage
+\pagenumbering{arabic}
 
 %% =====================================================================
 \section{Executive summary}\label{sec:summary}
@@ -356,7 +261,7 @@ more of revenue.
 {\tablesetup
 \begin{tabularx}{\linewidth}{P{41mm}RRRRR}
 \toprule
-\hdr \textbf{₹ cr unless stated} & \textbf{FY22} & \textbf{FY24} & \textbf{FY25} & \textbf{FY26} & \textbf{H1 FY27} \\
+\textbf{₹ cr unless stated} & \textbf{FY22} & \textbf{FY24} & \textbf{FY25} & \textbf{FY26} & \textbf{H1 FY27} \\
 \midrule
 Revenue from operations & 17,119 & 26,711 & 31,079 & 38,736 & 22,161 \\ \rowsep
 EBITDA (margin) & 10,397 (61\%) & 15,864 (59\%) & 19,025 (61\%) & 22,851 (59\%) & 13,347 (60\%) \\ \rowsep
@@ -380,9 +285,9 @@ in the documents reviewed. H1 FY27 market shares are compared with H1 FY26
 \begin{exhibit}[!htbp]
 \caption{Segment economics, FY26 (and Q2 FY27 margin)}\label{ex:segments}
 {\tablesetup
-\begin{tabularx}{\linewidth}{P{20mm}Q{19mm}Q{14mm}Q{21mm}Q{17mm}L}
+\begin{tabularx}{\linewidth}{P{21mm}Q{20mm}Q{16mm}Q{21mm}Q{17mm}L}
 \toprule
-\hdr \textbf{Segment} & \textbf{Revenue ₹ cr (YoY)} & \textbf{EBITDA ₹ cr} & \textbf{EBITDA margin FY26 (Q2 FY27)} & \textbf{ROCE FY26 (FY25)} & \textbf{What drives it} \\
+\textbf{Segment} & \textbf{Revenue ₹ cr (YoY)} & \textbf{EBITDA ₹ cr} & \textbf{EBITDA margin FY26 (Q2 FY27)} & \textbf{ROCE FY26 (FY25)} & \textbf{What drives it} \\
 \midrule
 Domestic ports & 25,755 (+13\%) & 18,849 & 73\% (72\%) & 23\% (21\%) & Mundra; captive harbour services (90\% margin) \\ \rowsep
 International ports & 4,539 (+34\%) & ≈1,298 & 29\% (48\%) & 8\%* (6\%) & NQXT (from Q4 FY26), Colombo ramp-up \\ \rowsep
@@ -515,12 +420,13 @@ advantage, examined next, therefore has to explain less of the margin than the
 headline suggests.
 
 % ---------------------------------------------------------------- Exhibit 3
-\begin{exhibit}[!htbp]
+\begin{exhibit}[H]
 \caption{Five Forces for Indian gateway port services, with ratings by segment
 (FY26--H1 FY27; ``box'' = container)}\label{ex:fiveforces}
 \centering
 \begin{tikzpicture}[
-    font=\sffamily\fontsize{7.6}{9.6}\selectfont,
+    font=\fontsize{7}{8.8}\selectfont,
+    execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000},
     force/.style={draw=rulegrey, rounded corners=3pt, align=center,
                   inner sep=4pt, line width=0.6pt},
     flow/.style={-{Stealth[length=5pt,width=4pt]}, draw=muted, line width=1pt}]
@@ -531,24 +437,24 @@ headline suggests.
     JNPA >8m TEU (FY26); JSW → 400 MTPA\\
     APSEZ domestic utilisation ≈69\%\\
     East-coast margin 50\% → 41\%};
-  \node[force, fill=modbg, text width=56mm, above=9mm of riv] (ent) {%
+  \node[force, fill=modbg, text width=62mm, above=9mm of riv] (ent) {%
     \textcolor{modink}{\textbf{THREAT OF NEW ENTRY: MODERATE}}\\
     High greenfield barriers (capital, draft, clearances)\\
     but the state is an entrant: Vadhavan, ₹76,220 cr, c.2030\\
     Landlord PPPs allow entry without owning a port};
-  \node[force, fill=modbg, text width=43mm, left=7mm of riv] (sup) {%
+  \node[force, fill=modbg, text width=41mm, left=6mm of riv] (sup) {%
     \textcolor{modink}{\textbf{SUPPLIERS: MODERATE}}\\
     \textcolor{highink}{\textbf{→ HIGH for Mundra near 2031}}\\
     Grantor (GMB): royalty, renewal\\
     Indian Railways: haulage monopoly\\
     64 own dredgers limit contractors};
-  \node[force, fill=highbg, text width=43mm, right=7mm of riv] (buy) {%
+  \node[force, fill=highbg, text width=41mm, right=6mm of riv] (buy) {%
     \textcolor{highink}{\textbf{BUYERS: MODERATE–HIGH}}\\
     Box HIGH · Bulk/Liquid LOW–MOD\\
     MSC, CMA CGM: buyers and JV partners\\
     No external customer ≥10\% of revenue\\
     16\% of revenue from group companies};
-  \node[force, fill=lowbg, text width=56mm, below=9mm of riv] (subs) {%
+  \node[force, fill=lowbg, text width=62mm, below=9mm of riv] (subs) {%
     \textcolor{lowink}{\textbf{SUBSTITUTES: LOW (MODERATE for coal)}}\\
     No practical alternative to sea EXIM trade\\
     Falling thermal-coal imports (APSEZ coal −6\% YoY)};
@@ -618,9 +524,9 @@ vendors and serve as a parity control.
 {\tablesetup
 \begin{tabularx}{\linewidth}{P{38mm}LSSSSP{38mm}}
 \toprule
-\hdr \textbf{Resource / capability} & \textbf{Evidence that APSEZ possesses it} & \textbf{V} & \textbf{R} & \textbf{I} & \textbf{N} & \textbf{Implication; main vulnerability} \\
+\textbf{Resource / capability} & \textbf{Evidence that APSEZ possesses it} & \textbf{V} & \textbf{R} & \textbf{I} & \textbf{N} & \textbf{Implication; main vulnerability} \\
 \midrule
-R1 Mundra complex (concession, SEZ land, draft, JV terminals) & 45\% of domestic volume; 72\% margin; Mega Port; SEZ contiguous to port & \yes & \yes & \partly\textcolor{modink}{*} & \partly & Sustained-advantage candidate; *tenure ends 16 Feb 2031 \\ \rowsep
+R1 Mundra complex (concession, SEZ land, draft, JV terminals) & 45\% of domestic volume; 72\% margin; Mega Port; SEZ contiguous to port & \yes & \yes & \partly* & \partly & Sustained-advantage candidate; *tenure ends 16 Feb 2031 \\ \rowsep
 R2 Non-Mundra domestic ports & 14 ports and terminals; margins 41--65\% & \yes & \partly & \no & \no & Parity; acquired in factor markets \\ \rowsep
 R3 Transshipment (Vizhinjam, Colombo) & Vizhinjam ≈1.3m TEU FY26; Colombo Phase II 3.2m TEU & \yes & \yes & \partly & \partly & Temporary; state hubs, Colombo and Singapore rivals \\ \rowsep
 R4 Shipping-line JV terminals & CT3 with MSC, CT4 with CMA CGM & \yes & \partly & \partly & \partly & Temporary; co-terminus with 2031 \\ \rowsep
@@ -704,17 +610,17 @@ says more about whether management turns it into returns.
 {\tablesetup
 \begin{tabularx}{\linewidth}{P{30mm}SSP{18mm}LP{30mm}}
 \toprule
-\hdr \textbf{Resource} & \textbf{V} & \textbf{R} & \textbf{Costly to imitate} & \textbf{Organised (key evidence)} & \textbf{Outcome} \\
+\textbf{Resource} & \textbf{V} & \textbf{R} & \textbf{Costly to imitate} & \textbf{Organised (key evidence)} & \textbf{Outcome} \\
 \midrule
-R1 Mundra complex & \yes & \yes & \yestext{✓ until 2031} & \parttext{◐ Strong in operations; unsigned supplementary and sub-concessions} & \textbf{Sustained, conditional on renewal} \\ \rowsep
-R2 Non-Mundra ports & \yes & \partly & \no & \parttext{◐ Flat volume; east margin down} & Parity \\ \rowsep
-R3 Transshipment & \yes & \yes & \partly & \yestext{✓ Rapid ramp-up (Colombo 2m TEU in 18 months)} & Temporary advantage \\ \rowsep
-R4 Shipping-line JVs & \yes & \partly & \partly & \notext{✗ Rights co-terminus with 2031, unsigned} & Temporary advantage \\ \rowsep
-R5 Rail / logistics parks & \yes & \no & --- & \yestext{✓ Bundled offer} & Parity \\ \rowsep
-R6 Trucking / forwarding & \partly & \no & --- & \parttext{◐ ROCE 10\% (segment)} & Parity \\ \rowsep
-R7 Marine fleet & \yes & \partly & \partly & \yestext{✓ Take-or-pay contracts} & Temporary advantage \\ \rowsep
-R8 Execution / integration & \yes & \partly & \partly & \parttext{◐ Overruns; Colombo slipped from Dec 2024 to Apr 2025} & Unproven \\ \rowsep
-R9 Financial capacity & \yes & \no & --- & \yestext{✓ Leverage policy respected} & Parity \\ \rowsep
+R1 Mundra complex & \yes & \yes & ✓ until 2031 & ◐ Strong in operations; unsigned supplementary and sub-concessions & \textbf{Sustained, conditional on renewal} \\ \rowsep
+R2 Non-Mundra ports & \yes & \partly & \no & ◐ Flat volume; east margin down & Parity \\ \rowsep
+R3 Transshipment & \yes & \yes & \partly & ✓ Rapid ramp-up (Colombo 2m TEU in 18 months) & Temporary advantage \\ \rowsep
+R4 Shipping-line JVs & \yes & \partly & \partly & ✗ Rights co-terminus with 2031, unsigned & Temporary advantage \\ \rowsep
+R5 Rail / logistics parks & \yes & \no & --- & ✓ Bundled offer & Parity \\ \rowsep
+R6 Trucking / forwarding & \partly & \no & --- & ◐ ROCE 10\% (segment) & Parity \\ \rowsep
+R7 Marine fleet & \yes & \partly & \partly & ✓ Take-or-pay contracts & Temporary advantage \\ \rowsep
+R8 Execution / integration & \yes & \partly & \partly & ◐ Overruns; Colombo slipped from Dec 2024 to Apr 2025 & Unproven \\ \rowsep
+R9 Financial capacity & \yes & \no & --- & ✓ Leverage policy respected & Parity \\ \rowsep
 R10 Digital & \yes & \no & --- & --- & Parity \\
 \bottomrule
 \end{tabularx}}
@@ -728,7 +634,7 @@ Swarajya (2024). Outcome categories follow Barney and Hesterly (2021).}
 {\tablesetup
 \begin{tabularx}{\linewidth}{P{24mm}P{36mm}P{32mm}L}
 \toprule
-\hdr \textbf{Resource} & \textbf{VRIN verdict} & \textbf{VRIO verdict} & \textbf{Reason for the difference} \\
+\textbf{Resource} & \textbf{VRIN verdict} & \textbf{VRIO verdict} & \textbf{Reason for the difference} \\
 \midrule
 R1 Mundra & Strong; N only partial & Sustained but conditional & N flags an external alternative bundle (JNPA + Vadhavan + rail corridor). O flags internal contract gaps. \\ \rowsep
 R4 JVs & Partly rare, partly protected & Temporary & O fails: legal basis unsigned and expiring \\ \rowsep
@@ -809,22 +715,21 @@ management is planning for some dilution.
 \begin{exhibit}[!htbp]
 \caption{Ansoff matrix: existing initiatives (as of 28 Oct 2026) and
 \prop{proposals in this report}}\label{ex:ansoff}
-{\sffamily\footnotesize
-\renewcommand{\arraystretch}{1.15}%
+{\footnotesize
+\renewcommand{\arraystretch}{1.2}%
 \setlength{\tabcolsep}{5pt}%
-\arrayrulecolor{rulegrey}%
 \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}m{7mm}|L|L}
- & \cellcolor{soft}\centering\textbf{Existing services} & \cellcolor{soft}\centering\arraybackslash\textbf{New services} \\
+ & \centering\textbf{Existing services} & \centering\arraybackslash\textbf{New services} \\
 \hline
-\cellcolor{soft}\rotatebox{90}{\textbf{Existing markets}} &
-\textcolor{accent}{\textbf{Market penetration}}
+\rotatebox{90}{\textbf{Existing markets}} &
+\textbf{Market penetration}
 \begin{celllist}
   \item Mundra expansion: container terminal 5, VLCC jetty; ₹45,000 cr expansion cleared (2024)
   \item Empty-container yard at Mundra (Q2 FY27)
   \item Outcome: Mundra +8\% (H1 FY27), but national container share down 1.5 pts
   \item \prop{Proposed (Rec 3): multi-year contracts with container lines beyond the JV partners; rail-linked landed-cost offer}
 \end{celllist} &
-\textcolor{accent}{\textbf{Product development (port-linked)}}
+\textbf{Product development (port-linked)}
 \begin{celllist}
   \item Rail (68 container rakes), 12 logistics parks, warehousing, agri-silos
   \item Trucking (3.4\texttimes\ revenue in FY26), international freight network
@@ -832,15 +737,15 @@ management is planning for some dilution.
   \item \prop{Proposed (Rec 2): favour port-linked parks (30\% margin) over trucking}
 \end{celllist} \\
 \hline
-\cellcolor{soft}\rotatebox{90}{\textbf{New markets}} &
-\textcolor{accent}{\textbf{Market development}}
+\rotatebox{90}{\textbf{New markets}} &
+\textbf{Market development}
 \begin{celllist}
   \item India: Gopalpur, Paradip dry-bulk berths (30-yr, 18 MMT), Haldia, Vizhinjam export--import
   \item Abroad: Haifa, Dar es Salaam, Colombo Phase II (US\$750m), NQXT (acquired for shares, Dec 2025)
   \item Outcome: non-Mundra flat; international ROCE 8\% (excl.\ NQXT)
   \item \prop{Proposed (Rec 4): port-by-port review; sell minority stakes to recycle capital}
 \end{celllist} &
-\textcolor{accent}{\textbf{Related diversification}}
+\textbf{Related diversification}
 \begin{celllist}
   \item Offshore support vessels (Astro Offshore, TAHID) in the Middle East, Africa and South Asia; subsea robotics; entry into the European subsea market (Q2 FY27)
   \item Standalone inland logistics parks (Kanpur, ₹1,500 cr)
@@ -857,7 +762,7 @@ management is planning for some dilution.
 {\tablesetup
 \begin{tabularx}{\linewidth}{P{25mm}LLLP{24mm}}
 \toprule
-\hdr \textbf{Vector} & \textbf{Suitability (fit with resources and forces)} & \textbf{Acceptability (return, risk)} & \textbf{Feasibility (capital, execution)} & \textbf{Verdict} \\
+\textbf{Vector} & \textbf{Suitability (fit with resources and forces)} & \textbf{Acceptability (return, risk)} & \textbf{Feasibility (capital, execution)} & \textbf{Verdict} \\
 \midrule
 Penetration (Mundra) & High: builds on R1; counters container rivalry & High return (23\% ROCE); renewal risk after 2031 & High: internal cash flow & Continue, gated on tenure \\ \rowsep
 Market development, India & Medium: spreads grantor risk & Low so far: flat volume, east margin 41\% & High & Fix before expanding \\ \rowsep
@@ -951,7 +856,7 @@ starts to earn its cost of capital.
 {\tablesetup
 \begin{tabularx}{\linewidth}{P{29mm}LP{22mm}LLP{21mm}}
 \toprule
-\hdr \textbf{Resource (VRIO outcome)} & \textbf{Forces it counters} & \textbf{Ansoff vectors it enables} & \textbf{Financial evidence} & \textbf{Threat that erodes it} & \textbf{Horizon} \\
+\textbf{Resource (VRIO outcome)} & \textbf{Forces it counters} & \textbf{Ansoff vectors it enables} & \textbf{Financial evidence} & \textbf{Threat that erodes it} & \textbf{Horizon} \\
 \midrule
 R1 Mundra (sustained, conditional) & Bulk/liquid buyers; entry & Penetration & Domestic ROCE 23\%; 72\% margin & Grantor power; Vadhavan & Secure to 2031; uncertain after \\ \rowsep
 R3 Transshipment (temporary) & Rivalry for transshipment & Market development & International margin 48\% (Q2) & New state hubs; Colombo rivals & Medium \\ \rowsep
@@ -963,22 +868,23 @@ R7 Marine (temporary) & Supplier (dredging) power & Diversification & ROCE 13\% 
 \end{exhibit}
 
 % ---------------------------------------------------------------- Exhibit 10
-\begin{exhibit}[!htbp]
+\begin{exhibit}[H]
 \caption{Strategy synthesis: pressures, resources, growth and responses}\label{ex:synthesis}
 \centering
 \begin{tikzpicture}[
-    font=\sffamily\fontsize{6.9}{8.4}\selectfont,
+    font=\fontsize{6.5}{8}\selectfont,
+    execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000},
     box/.style={draw=rulegrey, rounded corners=2.5pt, align=center,
                 text width=30mm, minimum height=10.5mm, inner sep=2.5pt,
                 line width=0.6pt},
-    hd/.style={font=\sffamily\bfseries\fontsize{7.4}{9}\selectfont,
+    hd/.style={font=\bfseries\fontsize{7.4}{9}\selectfont,
                text=accent, align=center},
     link/.style={-{Stealth[length=4pt,width=3.2pt]}, draw=muted, line width=0.7pt}]
   % column headings
   \node[hd] at (17.5mm, 4mm)  {FIVE FORCES};
   \node[hd] at (59.0mm, 4mm)  {VRIO RESOURCES};
   \node[hd] at (100.5mm, 4mm) {ANSOFF VECTORS};
-  \node[hd] at (143.0mm, 4mm) {RECOMMENDATIONS};
+  \node[hd] at (141.0mm, 4mm) {RECOMMENDATIONS};
   % Five Forces pressures
   \node[box, fill=highbg] (f1) at (17.5mm, -7mm)  {Grantor power at 2031\\(supplier)};
   \node[box, fill=highbg] (f2) at (17.5mm, -21.5mm) {Container rivalry and\\state entry (Vadhavan)};
@@ -995,13 +901,13 @@ R7 Marine (temporary) & Supplier (dredging) power & Diversification & ROCE 13\% 
   \node[box, fill=modbg]  (a3) at (100.5mm, -39.5mm) {Product development\\ROCE 10\%};
   \node[box, fill=highbg] (a4) at (100.5mm, -53.5mm) {Diversification\\ROCE 13\%; weak link};
   % Recommendations
-  \node[box, fill=white, draw=accent, text width=32mm] (c1) at (143mm, -7mm)
+  \node[box, fill=white, draw=accent, text width=32mm] (c1) at (141mm, -7mm)
        {\textbf{1 Secure Mundra tenure}\\gate long-payback capex};
-  \node[box, fill=white, draw=accent, text width=32mm] (c3) at (143mm, -21.5mm)
+  \node[box, fill=white, draw=accent, text width=32mm] (c3) at (141mm, -21.5mm)
        {\textbf{3 Defend container share}\\before Vadhavan};
-  \node[box, fill=white, draw=accent, text width=32mm] (c2) at (143mm, -36mm)
+  \node[box, fill=white, draw=accent, text width=32mm] (c2) at (141mm, -36mm)
        {\textbf{2 Segment return gate}\\logistics, marine, intl};
-  \node[box, fill=white, draw=accent, text width=32mm] (c4) at (143mm, -50.5mm)
+  \node[box, fill=white, draw=accent, text width=32mm] (c4) at (141mm, -50.5mm)
        {\textbf{4 Turn around or recycle}\\non-Mundra ports};
   % links: forces -> resources
   \draw[link] (f1.east) -- (r1.west);
@@ -1030,7 +936,7 @@ temporary / moderate; red = high pressure or weak fit; grey = parity.}
 {\tablesetup
 \begin{tabularx}{\linewidth}{P{40mm}P{24mm}LP{38mm}}
 \toprule
-\hdr \textbf{Scenario} & \textbf{Effect on R1} & \textbf{Effect on strategy} & \textbf{Early warning indicator} \\
+\textbf{Scenario} & \textbf{Effect on R1} & \textbf{Effect on strategy} & \textbf{Early warning indicator} \\
 \midrule
 A.\ Renewal on similar terms & Advantage extends & Current portfolio approach holds & Signed extension; signed sub-concessions \\ \rowsep
 B.\ Renewal at higher revenue share or with conditions & Margin compresses & International and marine become stabilisers; return gate becomes critical & GMB terms published; royalty revision \\ \rowsep
@@ -1121,7 +1027,7 @@ already announced. The KPI baselines come from the data used above.
 {\tablesetup
 \begin{tabularx}{\linewidth}{P{5mm}LP{17mm}P{30mm}P{14mm}P{38mm}}
 \toprule
-\hdr \textbf{\#} & \textbf{Recommendation} & \textbf{Impact} & \textbf{Urgency} & \textbf{Ease} & \textbf{New or modified} \\
+\textbf{\#} & \textbf{Recommendation} & \textbf{Impact} & \textbf{Urgency} & \textbf{Ease} & \textbf{New or modified} \\
 \midrule
 1 & Durable Mundra tenure; capex gating & Very high & High (before 2029) & Low & Modifies existing application \\ \rowsep
 2 & Segment return gate & High & High (FY27 capex raised) & High & New \\ \rowsep
@@ -1157,7 +1063,6 @@ capital, since each could change the strength of the conclusions above.
 \phantomsection
 \section*{References}
 \addcontentsline{toc}{section}{References}
-\markboth{References}{References}
 \label{sec:refs}
 \begingroup
 \small
@@ -1235,16 +1140,15 @@ capital, since each could change the strength of the conclusions above.
 %% =====================================================================
 %%  Appendices
 %% =====================================================================
-\vspace{6mm}
+\clearpage
 \phantomsection
 \section*{Appendix A: Verification and compliance checklist}
 \addcontentsline{toc}{section}{Appendix A: Verification and compliance checklist}
-\markboth{Appendix A: Verification and compliance checklist}{Appendix A: Verification and compliance checklist}
 \label{app:checklist}
 \begingroup\tablesetup
 \begin{xltabular}{\linewidth}{P{25mm}LLP{30mm}}
 \toprule
-\hdr \textbf{Review cycle} & \textbf{What was checked} & \textbf{Corrections made} & \textbf{Status} \\
+\textbf{Review cycle} & \textbf{What was checked} & \textbf{Corrections made} & \textbf{Status} \\
 \midrule
 \endhead
 1 Requirement coverage & All four frameworks; integration; 3--5 recommendations with 8 components; 7 visual types; executive summary to references & Ansoff evaluation criteria added; 2031 scenarios added & Satisfied \\ \rowsep
@@ -1257,7 +1161,7 @@ capital, since each could change the strength of the conclusions above.
 \end{xltabular}
 \endgroup
 
-{\sffamily\footnotesize\color{muted}
+{\footnotesize
 Word count. Main body (Sections 1--11: prose, headings and recommendation
 tables): 4,977 words, of which recommendation tables 730. Exhibits (tables,
 diagrams, captions and source notes) add 1,647 words and are excluded, as are
@@ -1267,9 +1171,8 @@ references and appendices.\par}
 \phantomsection
 \section*{Appendix B: Data notes and limitations}
 \addcontentsline{toc}{section}{Appendix B: Data notes and limitations}
-\markboth{Appendix B: Data notes and limitations}{Appendix B: Data notes and limitations}
 \label{app:data}
-{\sffamily\footnotesize\color{muted}
+{\footnotesize
 \begin{itemize}
   \item \textbf{Basis.} Segment, EBITDA and ROCE figures use APSEZ's management
         basis (APSEZ, 2026a; 2026d). ROCE is company-defined and was not
